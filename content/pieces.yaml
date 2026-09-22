@@ -178,6 +178,11 @@
   audio_url: ""
   status: complete
 
+# FLAGGED (unresolved): `artist` is deliberately left blank below because
+# the source names a group, not an individual, and the brief instructs
+# "role is the group; Affiliated Institution goes in affiliation." This
+# may render oddly on the card/page (byline with nothing after "by").
+# See CORRECTIONS.md for detail — not forgotten, just not yet decided.
 - id: "11"
   title: "The Voice Within"
   artist: ""
@@ -186,7 +191,7 @@
   form: "Poetry"
   medium: ""
   description:
-    - "Laryngectomy surgery is life-changing, resulting in permanent changes to breathing, speaking and swallowing and overall quality of life. We present a collection of poems and song lyrics penned by patients exploring their experiences of ageing with a “new voice” and life after laryngectomy. These pieces reflect moments from their lived experiences and were developed as part of Voice Group Music Therapy sessions, delivered in collaboration with the Speech and Language Therapy Department and Music Therapy at Creative Life MISA at St. James’s Hospital. The collection was co-curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist)."
+    - "Laryngectomy surgery is life-changing, resulting in permanent changes to breathing, speaking and swallowing and overall quality of life. We present a collection of poems and song lyrics penned by patients exploring their experiences of ageing with a “new voice” and life after laryngectomy. These pieces reflect moments from their lived experiences and were developed as part of Voice Group Music Therapy sessions, delivered in collaboration with the Speech and Language Therapy Department and Music Therapy at Creative Life MISA at St. James’s Hospital. The collection was co-curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist). Marina Cassidy, Music Therapist, SJH."
   sections: []
   closing: []
   video_url: ""

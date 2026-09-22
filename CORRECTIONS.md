@@ -15,11 +15,17 @@ of their title are preserved exactly as submitted.
 | 01 — Artificial Creativity | "100000rial note" | "100,000-rial note" | Listed correction (formatting). |
 | 11 — The Voice Within | "Speech &amp; Language Therapist" | "Speech & Language Therapist" | Listed correction (unescaped HTML entity left in source). |
 
-## Requires approval
+## Suggested changes — NOT applied (not mine to make)
 
-| Piece | Before | After | Reason |
+These are not corrections to the source document; the source document is
+not mine to edit. `pieces.yaml` currently carries the text exactly as
+submitted for both. Logged here so the suggestion isn't lost — whoever
+owns the source material can decide whether to action them.
+
+| Piece | Current text | Suggested change | Reason |
 |---|---|---|---|
-| 11 — The Voice Within | "...The collection was co‑curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist). Marina Cassidy, Music Therapist, SJH." | "...The collection was co‑curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist)." | Marina Cassidy is already credited by name and role in the immediately preceding sentence; the trailing "Marina Cassidy, Music Therapist, SJH." repeats it. **This removal has been applied in `pieces.yaml` pending your explicit sign‑off** — say the word and I'll restore it if you'd rather keep the repeated credit line. |
+| 11 — The Voice Within | "...The collection was co‑curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist). Marina Cassidy, Music Therapist, SJH." | Drop the trailing "Marina Cassidy, Music Therapist, SJH." | Marina Cassidy is already credited by name and role in the immediately preceding sentence; the trailing clause repeats it. |
+| 06 — Approaches | "Base: Wooden board, prescription medication leaflets. Hands-Plaster" | Something like "Hands: Plaster" or "Hands – Plaster" | Source runs concatenate to "Hands-Plaster" with no space — likely a missing space or colon lost in a bold/italic run break (same artifact class as "Dr.** Ciarán **Trolan" elsewhere in the doc), but ambiguous which the artist intended, so left verbatim rather than guessed at. |
 
 ## Typography normalisation (mechanical, not wording changes)
 
@@ -56,12 +62,15 @@ flagging for your review:
   headings ("Fear Lasta lampAI" / "AI I AM: Bani Adam for the New Age")
   once rendered on the piece page, but it's the artist's own text
   structure, not a typo — left verbatim.
-- **06 — Approaches**: medium reads "Hands-Plaster" with no space
-  (source runs: "...Hands-" + "Plaster "). Could be a missing space/colon
-  ("Hands: Plaster" or "Hands – Plaster") lost in a bold/italic run break,
-  similar to the "Dr.** Ciarán **Trolan" artifact elsewhere in the doc —
-  but since it's ambiguous which the artist intended, it was left exactly
-  as extracted rather than guessed at. Please confirm the intended text.
+- **11 — The Voice Within** (`pieces.yaml`, `artist` field): left blank.
+  The source names a group, not an individual; per instruction, the group
+  name went into `role` ("Members of Laryngectomy Outpatients Music
+  Therapy Voice Group, St. James's Hospital, Dublin") and the explicit
+  "Affiliated Institution:" text went into `affiliation`. That leaves
+  `artist` empty, which may render oddly on the card/page (a byline with
+  nothing after "by"). **Unresolved — flagging so it isn't forgotten**,
+  not deciding it here. Template will need to handle the empty-artist
+  case gracefully either way.
 - **13 — Growing into Ourselves: The Human Journey Across Generations**
   (Liz Nolan): role, form, medium and description are all absent from the
   source document — this is the one entry that needs new material from
