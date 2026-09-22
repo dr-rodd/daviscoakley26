@@ -1,0 +1,222 @@
+# Professor Davis Coakley Award 2026 — source of truth for all 13 pieces.
+#
+# Edit this file to fix a description, add a missing one, or update any
+# field. Then run `python build.py` to regenerate the site, QR codes and
+# print PDFs. See README.md for the non-developer walkthrough.
+#
+# The `id` field is PERMANENT once cards are printed and QR codes are
+# generated — it is baked into the printed QR/URL. Never renumber an
+# existing id, even if a piece is withdrawn.
+
+- id: "01"
+  title: "Artificial Creativity: Standing On The Shoulders Of Algorithms"
+  artist: "Dr. Ciarán Trolan"
+  role: "Consultant Geriatrician"
+  affiliation: ""
+  form: "Poem diptych"
+  medium: ""
+  description:
+    - "Both poems are revisions. Reinterpretations of works of others, so really artificial creativity. One in English, one as Gaeilge; an inflexion of way of saying, ways of being and the strength in having skills and knowledge that straddle the new and old."
+  sections:
+    - heading: "Fear Lasta lampAI"
+      lang: "ga"
+      body:
+        - "1. The first, “Fear Lasta lampAI” is a revision of Máirtín Ó Direáin’s poem. MÓD was from Inis Mór, a career civil servant, “Stoite” or being uprooted from Gaelic bucolic life and transplantation in the urban modernity was the theme of his poetry; a form of Gaelic revivalism that ran headlong into the apocalyptic sense of civilisation being WW1 and WW2."
+        - "Artificial Intelligence is considered by many to be apocalyptic for societies as they are currently structured. Clinicians and healthcare will need to innovate."
+    - heading: "AI I AM: Bani Adam for the New Age"
+      lang: ""
+      body:
+        - "2. This second in the diptych is “AI I AM: Bani Adam for the New Age”. It is a revision of 13th century Persian poet Saadi Shirazi’s epic Gulistan/The Rose Garden. He was considered to have a humanistic, inclusive worldview and focussed on empathy. Also a civil servant."
+        - "It is a 10/10/10/10/11/10 rhyming couplet metre, common in Farsi language poetry of the time. The poem still appears on the 100,000-rial note in modern day Iran. New Dervishes, new Plutocrats; same old story."
+        - "*Leib* and *Körper* both translate to “body” in English, but represent a crucial German philosophical distinction: *Leib* is the lived, subjective, and experienced body (“the body I am”), while *Körper* refers to the physical, objective, and anatomical body (“the body I have”). *Leib* implies personhood and vitality, often used in phenomenology, whereas *Körper* refers to a scientific object."
+  closing:
+    - "Clinicians of the future will need to keep the light shining on *Leib* even if AI may treat us as *Körper*."
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "02"
+  title: "You Are Heard"
+  artist: "Lanyi Yan"
+  role: "Music and Health Researcher"
+  affiliation: ""
+  form: "Music Composition"
+  medium: ""
+  description: []
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: missing_description
+
+- id: "03"
+  title: "Bealtaine"
+  artist: "Geraint Warlow"
+  role: "GP, Virtue Medical"
+  affiliation: ""
+  form: "Short story"
+  medium: ""
+  description:
+    - "I’m a Welshman living in Ireland. This story is about Irish people living in Ireland. Forgive me."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "04"
+  title: "Da"
+  artist: "Aran Young"
+  role: "Visual Artist"
+  affiliation: ""
+  form: "Painting"
+  medium: "Oil on canvas with encaustic medium"
+  description: []
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: missing_description
+
+- id: "05"
+  title: "The Craft of Care"
+  artist: "Siobhán O’Reilly"
+  role: "PhD researcher, University of Limerick"
+  affiliation: ""
+  form: "Knitted swatch"
+  medium: "Knit using hand-spun yarn sourced from local sheep"
+  description:
+    - "This swatch is the final product of a process which involved cleaning, carding, spinning and staining sheep’s wool. The turmeric stain will fade over time, leaving the shadow cast by certain stitches. The piece represents the importance of time and care in communities."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "06"
+  title: "Approaches"
+  artist: "Dr. Ann Marie Walsh"
+  role: "Geriatric SpR"
+  affiliation: ""
+  form: "Sculpture"
+  medium: "Base: Wooden board, prescription medication leaflets. Hands-Plaster"
+  description:
+    - "I hope it serves as a reminder of the importance of a patient centred and holistic approach in our day-to-day work in geriatric medicine as our profession continues to embrace innovation."
+    - "The base is a wooden board layered with prescription medication leaflets. These documents symbolise the myriad of chronic illnesses and resulting polypharmacy that we often encounter in geriatric medicine. The wooden base represents the individual who carries the weight of diagnoses, prescriptions, and clinical decisions. It serves as a reminder of the importance of reviewing medications, deprescribing, weighing up risks and benefits of intervention and striving to achieve what matters most to our patients. The medication leaflets also illustrate that we, as a profession, are innovative and embrace change as newer medicines and technologies are approved and developed."
+    - "The hands in this piece are moulds of my mother’s hands; they symbolise not only the care we provide to our patients but also remind us of the importance of our patient’s wider support network and relationships. It is important to not just see the patient with an illness in front of us but to see beyond their condition to the individual, their story, and their network of care."
+    - "In a time of rapid and exciting innovation we need to ensure we do not lose sight of what we do so well in geriatrics - patient centred holistic care."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "07"
+  title: "Lipstick"
+  artist: "Éilis O’Neill"
+  role: "Animator"
+  affiliation: ""
+  form: "Animated Short Film"
+  medium: "Ink on paper"
+  description:
+    - "Lipstick is an animated short film that explores the lives of three generations of women within one family as they deal with ageing, sickness and interdependence."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "08"
+  title: "The Breast Series"
+  artist: "Fiona Connaughtan"
+  role: "Nurse Lead of National Clinical Programme for Stroke"
+  affiliation: ""
+  form: "Ink drawing"
+  medium: "Original artwork: ink on paper. Exhibited work: ink drawing, digitally reproduced as an archival canvas print"
+  description:
+    - "The Breast Series uses the repeated drawing of a mannequin to give form to experiences shared by generations of women within healthcare. Through repetition, the drawing moves beyond the individual to become a collective narrative, speaking to enduring patterns within women’s experiences of healthcare across generations, roles and time."
+    - "Originating from a single hand-drawn scribble, the layered pen marks capture the unravelling of words left unsaid, giving form to women’s voices that have too often been overlooked, disregarded or silenced. Subtle shifts in tonal value move from darker forms towards brighter possibilities, reflecting a gradual movement from silence towards voice, from invisibility towards visibility, and from objectification towards agency. While the work acknowledges enduring inequalities within healthcare, it also suggests the possibility of change."
+    - "Responding to the conference theme, Ageing with Innovation: Are We Ready?, the work combines traditional hand-drawn mark-making with artificial intelligence as interconnected creative processes. The original drawing carries the intimacy of lived experience, while AI expands its visual language through repetition and tonal variation, revealing patterns that may remain unseen in a single drawing alone."
+    - "Ultimately, the work asks whether innovation can help healthcare systems evolve—not only in how they care for ageing populations, but in how they recognise, value and amplify the voices of women as they age, whether as patients, caregivers or healthcare professionals."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "09"
+  title: "Step by Step"
+  artist: "Aoife McFeely"
+  role: "Geriatric Medicine SpR, SVUH"
+  affiliation: ""
+  form: "Pencil sketch with poem"
+  medium: ""
+  description:
+    - "This piece was made early in my maternity leave and is centred on my father-in-law, Flan, who has done so much for his family in the years I’ve known him."
+    - "This piece is a small tribute to him because, in a world increasingly shaped by technology and AI, Flan reminds us of the value of making things with our hands, passing on practical knowledge, and encouraging children (and adults) to explore and experience the world for themselves."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "10"
+  title: "The Hands That Carry Tomorrow"
+  artist: "Geethu Xavier"
+  role: "CNS TUH"
+  affiliation: ""
+  form: "Painting"
+  medium: ""
+  description:
+    - "The older woman crossing the golden bridge represents every person ageing with a lifetime of memories, strength, and dignity. The bridge is golden because later life should be valued, not overlooked."
+    - "One side of the painting shows the difficulties many older people face — loneliness, isolation, barriers, and fragmented care. The other side shows a future shaped by innovation, where ageing at home, remote monitoring, and connected care can help people feel safer, supported, and less alone."
+    - "The human hand represents compassion — care, kindness, touch, listening, and presence. The robotic hand represents innovation — technology, digital health, and new ways of supporting ageing. Between them are the values that matter most: dignity, autonomy, and integrated care."
+    - "This artwork asks us to imagine a future where innovation does not stand apart from compassion, but works alongside it. To be truly ready for ageing with innovation, we must create systems that do more than advance technology — they must protect dignity, support autonomy, connect care, and ensure that no older person is left to cross the future alone."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "11"
+  title: "The Voice Within"
+  artist: ""
+  role: "Members of Laryngectomy Outpatients Music Therapy Voice Group, St. James’s Hospital, Dublin"
+  affiliation: "Speech & Language Dept., Music Therapy Dept., Creative Life, MISA, St. James’s Hospital, Dublin."
+  form: "Poetry"
+  medium: ""
+  description:
+    - "Laryngectomy surgery is life-changing, resulting in permanent changes to breathing, speaking and swallowing and overall quality of life. We present a collection of poems and song lyrics penned by patients exploring their experiences of ageing with a “new voice” and life after laryngectomy. These pieces reflect moments from their lived experiences and were developed as part of Voice Group Music Therapy sessions, delivered in collaboration with the Speech and Language Therapy Department and Music Therapy at Creative Life MISA at St. James’s Hospital. The collection was co-curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist)."
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: complete
+
+- id: "12"
+  title: "Balancing space between still time"
+  artist: "Dr. Karie Dennehy"
+  role: "Consultant in Palliative Medicine in Marymount University Hospital & Hospice, and Cork University Hospital."
+  affiliation: ""
+  form: "Poem"
+  medium: ""
+  description: []
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: missing_description
+
+- id: "13"
+  title: "Growing into Ourselves: The Human Journey Across Generations"
+  artist: "Liz Nolan"
+  role: ""
+  affiliation: ""
+  form: ""
+  medium: ""
+  description: []
+  sections: []
+  closing: []
+  video_url: ""
+  audio_url: ""
+  status: missing_fields
