@@ -64,39 +64,12 @@ a {
   text-underline-offset: 0.15em;
 }
 
-.site-header,
 .site-footer,
 main {
   max-width: 38rem;
   margin: 0 auto;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-}
-
-.site-header {
-  padding-top: 1.5rem;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-}
-
-.brand-logo {
-  height: 30px;
-  width: auto;
-  display: block;
-}
-
-.brand-label {
-  font-family: "Inter", sans-serif;
-  font-variant: small-caps;
-  letter-spacing: 0.06em;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent);
 }
 
 .accent-rule {
@@ -114,6 +87,20 @@ main {
   padding-bottom: 3rem;
 }
 
+.masthead {
+  margin: 0 0 1.5rem;
+}
+
+.masthead-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
 .eyebrow {
   font-family: "Inter", sans-serif;
   font-variant: small-caps;
@@ -121,6 +108,12 @@ main {
   font-size: 0.85rem;
   color: var(--secondary);
   margin: 0 0 0.35rem;
+}
+
+.eyebrow-accent {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 /* ---- index page ---- */
