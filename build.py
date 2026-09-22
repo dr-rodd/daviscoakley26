@@ -10,6 +10,7 @@ See README.md for the non-developer walkthrough.
 """
 import argparse
 import html
+import os
 import re
 import shutil
 import subprocess
@@ -25,7 +26,9 @@ TEMPLATES_DIR = ROOT / "templates"
 DOCS_DIR = ROOT / "docs"
 ASSETS_DIR = DOCS_DIR / "assets"
 
-BASE_URL = "https://dr-rodd.github.io/daviscoakley26/"
+BASE_URL = "https://davis-coakley-medal-2026.web.app/"
+FIREBASE_PROJECT = "davis-coakley-medal-2026"
+FIREBASE_KEY = ROOT / ".secrets" / "firebase-service-account.json"
 
 NO_DESCRIPTION_STATUSES = {"missing_description", "missing_fields"}
 
@@ -159,9 +162,27 @@ def git_deploy():
     print(f"Pushed to origin/{branch}")
 
 
+def firebase_deploy():
+    if not FIREBASE_KEY.exists():
+        print(
+            f"Skipping Firebase deploy: no key at {FIREBASE_KEY}\n"
+            "Ask whoever set this up for the Firebase service account JSON and "
+            "save it there (it's git-ignored, never commit it) — see README.md.",
+            file=sys.stderr,
+        )
+        return
+    env = {**os.environ, "GOOGLE_APPLICATION_CREDENTIALS": str(FIREBASE_KEY)}
+    subprocess.run(
+        ["npx", "--yes", "firebase-tools@latest", "deploy", "--only", "hosting",
+         "--project", FIREBASE_PROJECT, "--non-interactive"],
+        cwd=ROOT, check=True, env=env,
+    )
+    print(f"Deployed to {BASE_URL}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--deploy", action="store_true", help="commit and push after building")
+    parser.add_argument("--deploy", action="store_true", help="commit+push to git, then deploy to Firebase Hosting")
     args = parser.parse_args()
 
     pieces = load_pieces()
@@ -170,6 +191,7 @@ def main():
 
     if args.deploy:
         git_deploy()
+        firebase_deploy()
 
 
 if __name__ == "__main__":
