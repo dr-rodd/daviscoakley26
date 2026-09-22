@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="award-intro">
+  <p class="eyebrow">73rd IGS Annual &amp; Scientific Meeting · Cork · 1&ndash;3 October 2026</p>
+  <h1>Professor Davis Coakley Award 2026</h1>
+  <p class="theme">Ageing with Innovation: Are We Ready?</p>
+</section>
+<ol class="work-list">
+  {% for p in pieces %}
+  <li>
+    <a href="{{ p.id }}/">
+      <span class="work-number">No. {{ p.id }}</span>
+      <span class="work-title"{% if p.title_lang %} lang="{{ p.title_lang }}"{% endif %}>{{ p.title }}</span>
+      <span class="work-meta">{{ p.byline_display }}{% if p.byline_display and p.form %} · {% endif %}{{ p.form }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ol>
+{% endblock %}

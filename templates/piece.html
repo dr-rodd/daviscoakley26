@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="piece">
+  <p class="eyebrow">No. {{ piece.id }}</p>
+  <h1{% if piece.title_lang %} lang="{{ piece.title_lang }}"{% endif %}>{{ piece.title }}</h1>
+  <div class="byline">
+    {% if piece.artist %}<p class="artist">{{ piece.artist }}</p>{% endif %}
+    {% if piece.role %}<p class="role">{{ piece.role }}</p>{% endif %}
+    {% if piece.affiliation %}<p class="affiliation">{{ piece.affiliation }}</p>{% endif %}
+  </div>
+  {% if piece.form or piece.medium %}
+  <p class="form-medium">{{ piece.form }}{% if piece.form and piece.medium %} · {% endif %}{{ piece.medium }}</p>
+  {% endif %}
+
+  {% if piece.has_content %}
+    {% for para in piece.description_html %}
+    <p>{{ para|safe }}</p>
+    {% endfor %}
+    {% for section in piece.sections_html %}
+      <h2{% if section.lang %} lang="{{ section.lang }}"{% endif %}>{{ section.heading }}</h2>
+      {% for para in section.body %}
+      <p>{{ para|safe }}</p>
+      {% endfor %}
+    {% endfor %}
+    {% if piece.closing_html %}
+    <div class="closing">
+      {% for para in piece.closing_html %}
+      <p>{{ para|safe }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endif %}
+
+  {% if piece.video_embed_url %}
+  <div class="video-embed">
+    <iframe src="{{ piece.video_embed_url }}" loading="lazy" title="Video for {{ piece.title }}"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  {% endif %}
+
+  {% if piece.audio_url %}
+  <div class="audio-embed">
+    <audio controls preload="none" src="{{ piece.audio_url }}"></audio>
+  </div>
+  {% endif %}
+</article>
+{% endblock %}

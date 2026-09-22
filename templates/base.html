@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ og_description }}">
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:title" content="{{ og_title }}">
+<meta property="og:description" content="{{ og_description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ base_url }}assets/logo-lockup.png">
+<link rel="icon" href="{{ asset_prefix }}assets/favicon.ico" sizes="any">
+<link rel="icon" href="{{ asset_prefix }}assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ asset_prefix }}assets/apple-touch-icon.png">
+<link rel="stylesheet" href="{{ asset_prefix }}assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="{{ asset_prefix }}index.html">
+    <img class="brand-logo" src="{{ asset_prefix }}assets/logo-seal.png" alt="Irish Gerontological Society">
+    <span class="brand-label">Professor Davis Coakley Award 2026</span>
+  </a>
+  <hr class="accent-rule">
+</header>
+<main>
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <hr class="accent-rule">
+  <p><a href="{{ asset_prefix }}index.html">View all works</a></p>
+  <p class="meta">73rd IGS Annual &amp; Scientific Meeting · Cork · 2026</p>
+</footer>
+</body>
+</html>

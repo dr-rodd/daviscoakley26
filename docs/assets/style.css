@@ -1,0 +1,268 @@
+/* Professor Davis Coakley Award 2026 — site stylesheet
+   Palette is accent-only red per brand spec: never used for body text. */
+
+:root {
+  --accent: #ff414d;
+  --bg: #faf8f5;
+  --text: #1f1f1f;
+  --secondary: #5a5a5a;
+  --rule: #e7e2da;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/eb-garamond-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/eb-garamond-italic-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter-italic-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, iframe { max-width: 100%; }
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.site-header,
+.site-footer,
+main {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.site-header {
+  padding-top: 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.brand-label {
+  font-family: "Inter", sans-serif;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.accent-rule {
+  border: none;
+  border-top: 1px solid var(--accent);
+  margin: 0.9rem 0 0;
+}
+
+.site-footer .accent-rule {
+  margin: 0 0 1.25rem;
+}
+
+main {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.eyebrow {
+  font-family: "Inter", sans-serif;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin: 0 0 0.35rem;
+}
+
+/* ---- index page ---- */
+
+.award-intro h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.award-intro .theme {
+  font-style: italic;
+  color: var(--secondary);
+  font-size: 1.15rem;
+  margin: 0 0 2rem;
+}
+
+.work-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-list li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-list li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.work-list a {
+  display: block;
+  text-decoration: none;
+  padding: 1rem 0;
+}
+
+.work-number {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.work-title {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.work-meta {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  color: var(--secondary);
+  margin-top: 0.2rem;
+}
+
+/* ---- piece page ---- */
+
+.piece h1 {
+  font-size: clamp(1.75rem, 6vw, 2.35rem);
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+
+.piece .byline {
+  margin: 0 0 1.75rem;
+}
+
+.piece .artist {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.piece .role,
+.piece .affiliation {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  margin: 0.15rem 0 0;
+}
+
+.piece .form-medium {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin: 0 0 1.75rem;
+}
+
+.piece h2 {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.piece p {
+  margin: 0 0 1.1rem;
+}
+
+.piece .closing {
+  margin-top: 1.5rem;
+}
+
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.75rem 0;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.audio-embed {
+  margin: 1.75rem 0;
+}
+
+.audio-embed audio {
+  width: 100%;
+}
+
+/* ---- footer ---- */
+
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+
+.site-footer .meta {
+  color: var(--secondary);
+  font-size: 0.8rem;
+}
