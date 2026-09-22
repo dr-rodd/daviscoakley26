@@ -1,0 +1,126 @@
+/* Print card stylesheet — shared by the individual A6 (with bleed) and
+   A4 4-up (with crop marks) PDFs. Card content is always exactly
+   148mm x 105mm; the two page setups differ only in @page size/margins
+   and how many cards sit on a sheet. */
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("{{ font_dir }}/eb-garamond-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("{{ font_dir }}/inter-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root {
+  --accent: #ff414d;
+  --text: #1f1f1f;
+  --secondary: #5a5a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "EB Garamond", serif;
+  color: var(--text);
+}
+
+.card {
+  width: 148mm;
+  height: 105mm;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.card-rule {
+  position: absolute;
+  top: 8mm;
+  left: 8mm;
+  right: 8mm;
+  height: 0.6mm;
+  background: var(--accent);
+}
+
+.card-left {
+  position: absolute;
+  top: 13mm;
+  left: 8mm;
+  width: 84mm;
+  bottom: 8mm;
+}
+
+.card-label {
+  margin: 0 0 3mm;
+  font-family: "Inter", sans-serif;
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  font-size: 9.5pt;
+  color: var(--accent);
+}
+
+.card-title {
+  margin: 0 0 4mm;
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  font-size: 17.5pt;
+  line-height: 1.18;
+  color: var(--text);
+  max-height: 23mm;
+  overflow: hidden;
+}
+
+.card-artist {
+  margin: 0 0 1.5mm;
+  font-family: "EB Garamond", serif;
+  font-size: 12pt;
+  color: var(--text);
+}
+
+.card-form {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 9.5pt;
+  color: var(--secondary);
+}
+
+.card-right {
+  position: absolute;
+  top: 13mm;
+  bottom: 8mm;
+  right: 8mm;
+  width: 44mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-qr {
+  width: 32mm;
+  height: 32mm;
+}
+
+.card-qr-caption {
+  margin: 3mm 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 7.5pt;
+  color: var(--secondary);
+  text-align: center;
+  max-width: 34mm;
+}
+
+.card-logo {
+  position: absolute;
+  left: 8mm;
+  bottom: 8mm;
+  height: 8mm;
+  width: auto;
+}

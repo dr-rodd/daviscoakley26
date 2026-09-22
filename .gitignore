@@ -1,3 +1,5 @@
 .secrets/
 node_modules/
 .firebase/
+__pycache__/
+*.pyc

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+{{ card_css }}
+@page {
+  size: 297mm 210mm; /* A4 landscape */
+  margin: 0;
+}
+.card { page-break-after: auto; break-after: auto; position: absolute; }
+.sheet {
+  position: relative;
+  width: 297mm;
+  height: 210mm;
+  page-break-after: always;
+  break-after: page;
+}
+.cutline-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 148.5mm;
+  border-left: 0.3mm dashed #999999;
+}
+.cutline-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 105mm;
+  border-top: 0.3mm dashed #999999;
+}
+</style>
+</head>
+<body>
+{% for sheet in sheets %}
+<div class="sheet">
+  <div class="cutline-v"></div>
+  <div class="cutline-h"></div>
+  {% for card in sheet %}
+  <div class="card" style="top: {{ card.top }}; left: {{ card.left }};">
+    <div class="card-rule"></div>
+    <div class="card-left">
+      <p class="card-label">Davis Coakley Award 2026 &middot; No. {{ card.id }}</p>
+      <h2 class="card-title">{{ card.title }}</h2>
+      <p class="card-artist">{{ card.artist }}</p>
+      <p class="card-form">{{ card.form }}</p>
+    </div>
+    <div class="card-right">
+      <img class="card-qr" src="{{ card.qr_path }}">
+      <p class="card-qr-caption">Scan to read about this work</p>
+    </div>
+    <img class="card-logo" src="{{ logo_path }}">
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+</body>
+</html>

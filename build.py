@@ -20,6 +20,9 @@ from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+import qr_gen
+import build_cards
+
 ROOT = Path(__file__).resolve().parent
 CONTENT_FILE = ROOT / "content" / "pieces.yaml"
 TEMPLATES_DIR = ROOT / "templates"
@@ -187,7 +190,8 @@ def main():
 
     pieces = load_pieces()
     build_site(pieces)
-    # QR code generation (Phase 3) and print PDF generation (Phase 4) hook in here.
+    qr_gen.generate(pieces, BASE_URL)
+    build_cards.generate(pieces)
 
     if args.deploy:
         git_deploy()

@@ -18,14 +18,12 @@
 <link rel="stylesheet" href="{{ asset_prefix }}assets/style.css">
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="{{ asset_prefix }}index.html">
-    <img class="brand-logo" src="{{ asset_prefix }}assets/logo-seal.png" alt="Irish Gerontological Society">
-    <span class="brand-label">Professor Davis Coakley Award 2026</span>
-  </a>
-  <hr class="accent-rule">
-</header>
 <main>
+<div class="masthead">
+  <a href="{{ asset_prefix }}index.html">
+    <img class="masthead-logo" src="{{ asset_prefix }}assets/logo-seal.png" alt="Irish Gerontological Society">
+  </a>
+</div>
 {% block content %}{% endblock %}
 </main>
 <footer class="site-footer">

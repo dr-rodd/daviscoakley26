@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <article class="piece">
-  <p class="eyebrow">No. {{ piece.id }}</p>
+  <p class="eyebrow eyebrow-accent">No. {{ piece.id }}</p>
   <h1{% if piece.title_lang %} lang="{{ piece.title_lang }}"{% endif %}>{{ piece.title }}</h1>
   <div class="byline">
     {% if piece.artist %}<p class="artist">{{ piece.artist }}</p>{% endif %}

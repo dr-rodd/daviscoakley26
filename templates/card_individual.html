@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+{{ card_css }}
+@page {
+  size: 154mm 111mm; /* 148x105 card + 3mm bleed on every side */
+  margin: 0;
+}
+.card {
+  margin: 3mm; /* inset the safe card content by the bleed amount */
+}
+.card-bleed {
+  position: absolute;
+  inset: -3mm;
+  background: var(--bg, #faf8f5);
+  z-index: -1;
+}
+</style>
+</head>
+<body>
+{% for card in cards %}
+<div class="card">
+  <div class="card-bleed"></div>
+  <div class="card-rule"></div>
+  <div class="card-left">
+    <p class="card-label">Davis Coakley Award 2026 &middot; No. {{ card.id }}</p>
+    <h2 class="card-title">{{ card.title }}</h2>
+    <p class="card-artist">{{ card.artist }}</p>
+    <p class="card-form">{{ card.form }}</p>
+  </div>
+  <div class="card-right">
+    <img class="card-qr" src="{{ card.qr_path }}">
+    <p class="card-qr-caption">Scan to read about this work</p>
+  </div>
+  <img class="card-logo" src="{{ logo_path }}">
+</div>
+{% endfor %}
+</body>
+</html>
