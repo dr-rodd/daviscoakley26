@@ -208,7 +208,7 @@ def main():
     pieces = load_pieces()
     build_site(pieces)
     qr_gen.generate(pieces, BASE_URL)
-    build_cards.generate(pieces)
+    build_cards.generate(pieces, base_url=BASE_URL)
 
     if args.deploy:
         git_deploy()

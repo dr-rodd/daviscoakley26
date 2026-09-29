@@ -112,35 +112,46 @@ def decode_png(png_bytes: bytes) -> str:
     return results[0].data.decode("utf-8")
 
 
+def _write_one(id_: str, url: str, version: int):
+    matrix = make_qr_matrix(url, version)
+    svg = matrix_to_svg(matrix)
+    svg_path = QR_DIR / f"{id_}.svg"
+    svg_path.write_text(svg, encoding="utf-8")
+
+    png_bytes = cairosvg.svg2png(bytestring=svg.encode("utf-8"), output_width=1200, output_height=1200,
+                                  background_color="white")
+    png_path = QR_DIR / f"{id_}.png"
+    png_path.write_bytes(png_bytes)
+
+    decoded = decode_png(png_bytes)
+    status = "OK" if decoded == url else "MISMATCH"
+    print(f"  {id_}  {url}  -> decoded: {decoded or '(none)'}  [{status}]")
+    return decoded == url, decoded
+
+
 def generate(pieces, base_url: str):
     QR_DIR.mkdir(exist_ok=True)
-    current_ids = {p["id"] for p in pieces}
+    current_ids = {p["id"] for p in pieces} | {"title"}
     for stale in QR_DIR.glob("*"):
         if stale.stem not in current_ids and stale.suffix in (".svg", ".png"):
             stale.unlink()
             print(f"Removed stale {stale.name} (id no longer in pieces.yaml)")
 
     urls = [f"{base_url}{p['id']}/" for p in pieces]
-    version = required_version(urls)
+    # Same version as the piece codes (index URL is shorter, so it always
+    # fits) — keeps every QR in the printed set visually identical.
+    version = required_version(urls + [base_url])
     print(f"QR version {version} ({17 + 4 * version}x{17 + 4 * version} modules) fits all {len(urls)} URLs")
 
     failures = []
     for piece, url in zip(pieces, urls):
-        matrix = make_qr_matrix(url, version)
-        svg = matrix_to_svg(matrix)
-        svg_path = QR_DIR / f"{piece['id']}.svg"
-        svg_path.write_text(svg, encoding="utf-8")
-
-        png_bytes = cairosvg.svg2png(bytestring=svg.encode("utf-8"), output_width=1200, output_height=1200,
-                                      background_color="white")
-        png_path = QR_DIR / f"{piece['id']}.png"
-        png_path.write_bytes(png_bytes)
-
-        decoded = decode_png(png_bytes)
-        status = "OK" if decoded == url else "MISMATCH"
-        print(f"  {piece['id']}  {url}  -> decoded: {decoded or '(none)'}  [{status}]")
-        if decoded != url:
+        ok, decoded = _write_one(piece["id"], url, version)
+        if not ok:
             failures.append((piece["id"], url, decoded))
+
+    ok, decoded = _write_one("title", base_url, version)
+    if not ok:
+        failures.append(("title", base_url, decoded))
 
     if failures:
         print("\nQR VERIFICATION FAILED for:", file=sys.stderr)
@@ -148,7 +159,7 @@ def generate(pieces, base_url: str):
             print(f"  {id_}: expected {expected!r}, got {got!r}", file=sys.stderr)
         raise SystemExit(1)
 
-    print(f"All {len(urls)} QR codes verified OK.")
+    print(f"All {len(urls) + 1} QR codes verified OK.")
 
 
 if __name__ == "__main__":

@@ -23,8 +23,19 @@
 {% for card in cards %}
 <div class="card">
   <div class="card-bleed"></div>
+  {% if card.is_title %}
   <div class="card-left">
-    <h2 class="card-title"><span class="card-num">{{ card.num }}.</span>{{ card.title }}</h2>
+    <h2 class="card-cover-title">{{ card.title }}</h2>
+    <p class="card-cover-theme">{{ card.theme }}</p>
+    <p class="card-cover-meta">{{ card.meta }}</p>
+  </div>
+  <div class="card-right">
+    <img class="card-qr" src="{{ card.qr_path }}">
+    <p class="card-qr-caption">Scan to view all works</p>
+  </div>
+  {% else %}
+  <div class="card-left" style="--indent: {{ card.indent_mm }}mm;">
+    <h2 class="card-title"><span class="card-num">{{ card.num_label }}</span>{{ card.title }}</h2>
     <p class="card-artist">{{ card.artist }}</p>
     {% if card.role %}<p class="card-role">{{ card.role }}</p>{% endif %}
     {% if card.affiliation %}<p class="card-affiliation">{{ card.affiliation }}</p>{% endif %}
@@ -34,6 +45,7 @@
     <img class="card-qr" src="{{ card.qr_path }}">
     <p class="card-qr-caption">Scan to read more</p>
   </div>
+  {% endif %}
   <div class="card-footer-left">
     <img class="card-logo" src="{{ logo_path }}">
     <p class="card-label">Davis Coakley Award 2026</p>

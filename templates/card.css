@@ -26,6 +26,15 @@
   --secondary: #5a5a5a;
 }
 
+/* Hanging indent for numbered titles: --indent is set per-card, inline,
+   on .card-left (see build_cards.py's text_width_mm) — the *exact*
+   measured width of "N." at the title's size/weight, plus the gap. A
+   fixed CSS-only guess drifted on single-digit numbers, and an
+   inline-block number box got clipped by .card-title's overflow:hidden
+   in WeasyPrint, so this is measured in Python instead. It cascades
+   from .card-left down to the title and every row below it, so they
+   all align at the same left edge. */
+
 * { box-sizing: border-box; }
 
 body {
@@ -47,13 +56,39 @@ body {
   position: absolute;
   top: 8mm;
   left: 6mm;
-  width: 89mm;
+  width: 136mm; /* full card width (148mm) minus the 6mm side margins */
   bottom: 18mm;
 }
 
 .card-num {
   font-variant-numeric: tabular-nums;
-  margin-right: 0.4em;
+  margin-right: 1.5mm; /* NUM_GAP_MM in build_cards.py — keep in sync */
+}
+
+/* ---- cover/title card (no piece number; links to the index) ---- */
+
+.card-cover-title {
+  margin: 0 0 4mm;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  font-size: 21pt;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.card-cover-theme {
+  margin: 0 0 3mm;
+  font-family: "Arimo", sans-serif;
+  font-style: italic;
+  font-size: 12pt;
+  color: var(--secondary);
+}
+
+.card-cover-meta {
+  margin: 0;
+  font-family: "Arimo", sans-serif;
+  font-size: 9pt;
+  color: var(--secondary);
 }
 
 .card-title {
@@ -65,12 +100,13 @@ body {
   color: var(--ink);
   max-height: 21mm;
   overflow: hidden;
-  padding-left: 1.6em;
-  text-indent: -1.6em;
+  padding-left: var(--indent, 8mm);
+  text-indent: calc(-1 * var(--indent, 8mm));
 }
 
 .card-artist {
   margin: 0 0 1mm;
+  padding-left: var(--indent, 8mm);
   font-family: "Arimo", sans-serif;
   font-weight: 700;
   font-size: 10.5pt;
@@ -80,6 +116,7 @@ body {
 .card-role,
 .card-affiliation {
   margin: 0 0 1mm;
+  padding-left: var(--indent, 8mm);
   font-family: "Arimo", sans-serif;
   font-style: italic;
   font-size: 8.5pt;
@@ -90,6 +127,7 @@ body {
 
 .card-form {
   margin: 2.5mm 0 0;
+  padding-left: var(--indent, 8mm);
   font-family: "Arimo", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -101,9 +139,9 @@ body {
 
 .card-right {
   position: absolute;
-  bottom: 6mm;
-  right: 6mm;
-  width: 44mm;
+  bottom: 16mm;
+  right: 16mm;
+  width: 34mm;
   display: flex;
   flex-direction: column;
   align-items: center;

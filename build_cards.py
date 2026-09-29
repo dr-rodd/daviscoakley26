@@ -19,9 +19,10 @@ QR_DIR = ROOT / "qr"
 MEASURE_FONT = ROOT / "docs" / "assets" / "fonts" / "arimo-variable.woff2"
 TITLE_FONT_SIZE_PT = 15
 TITLE_WEIGHT = 700
-TITLE_BOX_WIDTH_MM = 89  # full card-left width — number now sits inline, not in its own column
+TITLE_BOX_WIDTH_MM = 128  # card-left width (136mm) minus a typical number indent, for the overflow check
 TITLE_MAX_LINES = 3
 MM_PER_PT = 25.4 / 72
+NUM_GAP_MM = 1.5  # extra space after the number, bullet-point style
 
 
 def _title_font(size_pt: float):
@@ -32,6 +33,12 @@ def _title_font(size_pt: float):
     except Exception:
         pass
     return font, 4  # oversample factor
+
+
+def text_width_mm(text: str, size_pt: float = TITLE_FONT_SIZE_PT) -> float:
+    font, oversample = _title_font(size_pt)
+    width_pt = font.getlength(text) / oversample
+    return width_pt * MM_PER_PT
 
 
 def wrap_line_count(text: str, box_width_mm: float = TITLE_BOX_WIDTH_MM) -> int:
@@ -72,9 +79,18 @@ def build_card_data(pieces):
             form_medium = f"Medium: {medium}"
         else:
             form_medium = form
+        num = str(int(p["id"]))  # no leading zero for display, unlike the permanent id/URL
+        num_label = f"{num}."
+        # Exact measured width of "N." at the title's own size/weight, so
+        # the hanging indent (used for both the wrapped title lines and
+        # every row below) lines up precisely with where "N. " ends —
+        # no CSS-side guessing, which drifted for single-digit numbers.
+        indent_mm = round(text_width_mm(num_label) + NUM_GAP_MM, 2)
         card = {
             "id": p["id"],
-            "num": str(int(p["id"])),  # no leading zero for display, unlike the permanent id/URL
+            "num": num,
+            "num_label": num_label,
+            "indent_mm": indent_mm,
             "title": p["title"],
             "artist": artist,
             "role": role,
@@ -85,10 +101,23 @@ def build_card_data(pieces):
         cards.append(card)
         # Measure with the number prefixed, since it now sits inline at the
         # same size as the title and eats into line 1's available width.
-        n_lines = wrap_line_count(f"{card['num']}.  {p['title']}")
+        n_lines = wrap_line_count(f"{num_label}  {p['title']}")
         if n_lines > TITLE_MAX_LINES:
             overflow.append((p["id"], p["title"], n_lines))
     return cards, overflow
+
+
+def build_title_card(base_url: str):
+    """The exhibition cover card: no piece number, links to the index
+    instead of a single piece. Always page/card 1 — printed and slotted
+    in ahead of piece 01 in both PDFs."""
+    return {
+        "is_title": True,
+        "title": "Professor Davis Coakley Award 2026",
+        "theme": "Ageing with Innovation: Are We Ready?",
+        "meta": "73rd IGS Annual Scientific Meeting · Cork · 1–3 October 2026",
+        "qr_path": (QR_DIR / "title.svg").as_uri(),
+    }
 
 
 def render_individual(cards, card_css: str):
@@ -129,7 +158,8 @@ def render_4up(cards, card_css: str):
 
 def render_previews(individual_pdf: Path, piece_ids, preview_ids):
     import subprocess
-    pieces = list(enumerate(piece_ids, start=1))  # 1 card per page, in doc order
+    # 1 card per page; page 1 is the title card, so pieces start at page 2.
+    pieces = list(enumerate(piece_ids, start=2))
     page_by_id = {pid: page for page, pid in pieces}
     for old_preview in CARDS_DIR.glob("preview_*.png"):
         old_preview.unlink()
@@ -146,7 +176,7 @@ def render_previews(individual_pdf: Path, piece_ids, preview_ids):
         print(f"Wrote preview for card {pid}")
 
 
-def generate(pieces, font_dir: str = FONT_DIR):
+def generate(pieces, base_url: str, font_dir: str = FONT_DIR):
     CARDS_DIR.mkdir(exist_ok=True)
     card_css_template = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR))).get_template("card.css")
     card_css = card_css_template.render(font_dir=font_dir)
@@ -158,8 +188,11 @@ def generate(pieces, font_dir: str = FONT_DIR):
         for id_, title, n in overflow:
             print(f"  {id_}: {n} lines needed — {title!r}", file=sys.stderr)
 
-    individual_pdf = render_individual(cards, card_css)
-    render_4up(cards, card_css)
+    title_card = build_title_card(base_url)
+    all_cards = [title_card] + cards
+
+    individual_pdf = render_individual(all_cards, card_css)
+    render_4up(all_cards, card_css)
     longest = max(cards, key=lambda c: len(c["title"]))["id"]
     preview_ids = sorted({cards[0]["id"], cards[-1]["id"], longest})
     render_previews(individual_pdf, [c["id"] for c in cards], preview_ids)
@@ -169,4 +202,4 @@ def generate(pieces, font_dir: str = FONT_DIR):
 if __name__ == "__main__":
     import yaml
     pieces = yaml.safe_load(open(ROOT / "content" / "pieces.yaml", encoding="utf-8"))
-    generate(pieces)
+    generate(pieces, base_url="https://davis-coakley-medal-2026.web.app/")
