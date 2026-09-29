@@ -35,14 +35,18 @@ FIREBASE_KEY = ROOT / ".secrets" / "firebase-service-account.json"
 
 NO_DESCRIPTION_STATUSES = {"missing_description", "missing_fields"}
 
+_BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
 _ITALIC_RE = re.compile(r"\*(.+?)\*")
 
 
 def md_to_html(text: str) -> str:
-    """Escape a plain paragraph then apply the one supported markdown rule:
-    *word* -> <em>word</em>. Escaping first means the asterisks themselves
-    are never HTML, only the italic markup we add is."""
+    """Escape a plain paragraph then apply the two supported markdown rules:
+    **word** -> <strong>word</strong>, *word* -> <em>word</em>. Escaping
+    first means the asterisks themselves are never HTML, only the markup
+    we add is. Bold is applied before italic so **pairs** aren't split up
+    by the single-asterisk rule."""
     escaped = html.escape(text, quote=False)
+    escaped = _BOLD_RE.sub(r"<strong>\1</strong>", escaped)
     return _ITALIC_RE.sub(r"<em>\1</em>", escaped)
 
 
@@ -57,6 +61,17 @@ def video_embed_url(url: str) -> str:
     if vimeo:
         return f"https://player.vimeo.com/video/{vimeo.group(1)}?dnt=1"
     return url
+
+
+def format_form_medium(form: str, medium: str) -> str:
+    """Form and medium on their own lines, medium explicitly labelled
+    (matching how the source document itself presented it) rather than
+    joined with a middle dot."""
+    if form and medium:
+        return f"{form}\nMedium: {medium}"
+    if medium:
+        return f"Medium: {medium}"
+    return form
 
 
 def load_pieces():
@@ -82,6 +97,7 @@ def load_pieces():
         piece["sections_html"] = sections_html
         piece["video_embed_url"] = video_embed_url(piece.get("video_url", ""))
         piece["title_lang"] = piece.get("title_lang", "")
+        piece["form_medium"] = format_form_medium(piece.get("form", ""), piece.get("medium", ""))
         pieces.append(piece)
 
     ids = [p["id"] for p in pieces]

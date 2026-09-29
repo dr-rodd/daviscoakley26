@@ -196,6 +196,7 @@ main {
   font-size: 0.95rem;
   color: var(--secondary);
   margin: 0.15rem 0 0;
+  white-space: pre-line;
 }
 
 .piece .form-medium {
@@ -203,6 +204,7 @@ main {
   font-size: 0.9rem;
   color: var(--secondary);
   margin: 0 0 1.75rem;
+  white-space: pre-line;
 }
 
 .piece h2 {

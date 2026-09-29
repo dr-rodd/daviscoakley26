@@ -45,9 +45,12 @@
 
 - id: "02"
   title: "You Are Heard"
-  artist: "Lanyi Yan"
-  role: "Composer and singer"
-  affiliation: "with Grace Park, pianist, St James’s Hospital"
+  # Same footnote-superscript treatment as piece 11: names (with
+  # superscripts) up top, role/location spelled out one line per number
+  # below — see CORRECTIONS.md.
+  artist: "Lan Yi Yan¹ with Grace Park²"
+  role: "1. Composer and singer, St James Hospital\n2. Pianist, St James Hospital"
+  affiliation: ""
   form: "Music Composition"
   medium: ""
   description:
@@ -196,18 +199,18 @@
 - id: "11"
   title: "Growing into Ourselves: The Human Journey Across Generations"
   # Credit line uses footnote-style superscripts (per instruction) so the
-  # name line stays short and matches the artist/role/affiliation rhythm
-  # of every other card and piece page: names+superscripts up top, the
-  # role/department key spelled out below.
+  # name line stays short: names+superscripts up top, one full line per
+  # footnote number (role + department together) below.
   artist: "Keyleigh Murphy¹, Claire Doyle², Kathleen Kenny³, Margaret Farrell³, Teresa Nolan³"
-  role: "¹ Transition Year Art student · ² Art teacher · ³ Service Users"
-  affiliation: "¹,² Presentation Secondary School Kilkenny · ³ Carlow Kilkenny ICPOP"
+  role: "1. Transition Year Art Student, Presentation Secondary School Kilkenny\n2. Art teacher, Presentation Secondary School Kilkenny\n3. Service Users, Carlow Kilkenny ICPOP"
+  affiliation: ""
   form: "Painting"
   medium: ""
   description:
     - "This small intergenerational art project aimed to foster awareness of ageing well in the community between ICPOP service users and the local secondary school. A series of conversations, workshop and quotes from ICPOP referrals inspired the painting. Key themes to emerge were: the importance of creativity, curiosity and growth, having a sense of purpose, and the value of social connections to benefit health and wellbeing. The project was facilitated by Liz Nolan, Community Connector, Carlow/Kilkenny Integrated Care Programme for Older Persons (ICPOP)"
-    - "The aim of the intergenerational project: to foster awareness of ageing well in the community."
-    - "The outcome: an original artwork for installation in the new ICPOP hub: Oriel House, Kilkenny. Our hope: to spark conversations about what it means to age well among future referrals to the ICPOP team: bringing creativity to life in a meaningful, positive and pragmatic way."
+    - "**The aim of the intergenerational project:** to foster awareness of ageing well in the community."
+    - "**The outcome:** an original artwork for installation in the new ICPOP hub: Oriel House, Kilkenny."
+    - "**Our hope:** to spark conversations about what it means to age well among future referrals to the ICPOP team: bringing creativity to life in a meaningful, positive and pragmatic way."
     - "In medical terms, the project reflects ‘What Matters Most?’, ‘Mentation’ (4Ms framework), along with the MECC (Making Every Contact Count) programme to support positive ageing"
   sections: []
   closing: []

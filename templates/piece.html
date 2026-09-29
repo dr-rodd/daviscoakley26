@@ -10,8 +10,8 @@
         {% if piece.role %}<p class="role">{{ piece.role }}</p>{% endif %}
         {% if piece.affiliation %}<p class="affiliation">{{ piece.affiliation }}</p>{% endif %}
       </div>
-      {% if piece.form or piece.medium %}
-      <p class="form-medium">{{ piece.form }}{% if piece.form and piece.medium %} · {% endif %}{{ piece.medium }}</p>
+      {% if piece.form_medium %}
+      <p class="form-medium">{{ piece.form_medium }}</p>
       {% endif %}
     </div>
   </div>

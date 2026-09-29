@@ -4,9 +4,9 @@
    and how many cards sit on a sheet.
 
    Museum-style: black only except the logo (kept in its real navy),
-   Helvetica-family (Arimo) throughout, number set prominently to the
-   left of the title, institutional credit + logo at bottom left, QR at
-   bottom right. */
+   Helvetica-family (Arimo) throughout, piece number set inline at the
+   start of the title (same size/weight, no leading zero), institutional
+   credit + logo at bottom left, QR at bottom right. */
 
 @font-face {
   font-family: "Arimo";
@@ -45,28 +45,15 @@ body {
 
 .card-left {
   position: absolute;
-  top: 10mm;
-  left: 8mm;
-  width: 84mm;
-  bottom: 21mm;
-}
-
-.card-left::after {
-  /* clearfix, so card-left's own height accounts for the floated number */
-  content: "";
-  display: block;
-  clear: both;
+  top: 8mm;
+  left: 6mm;
+  width: 89mm;
+  bottom: 18mm;
 }
 
 .card-num {
-  float: left;
-  width: 13mm;
-  margin-right: 3mm;
-  font-size: 28pt;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--ink);
   font-variant-numeric: tabular-nums;
+  margin-right: 0.15em;
 }
 
 .card-title {
@@ -96,6 +83,7 @@ body {
   font-size: 8.5pt;
   line-height: 1.25;
   color: var(--secondary);
+  white-space: pre-line;
 }
 
 .card-form {
@@ -104,13 +92,15 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 8.5pt;
+  line-height: 1.25;
   color: var(--ink);
+  white-space: pre-line;
 }
 
 .card-right {
   position: absolute;
-  bottom: 8mm;
-  right: 8mm;
+  bottom: 6mm;
+  right: 6mm;
   width: 44mm;
   display: flex;
   flex-direction: column;
@@ -133,8 +123,8 @@ body {
 
 .card-footer-left {
   position: absolute;
-  left: 8mm;
-  bottom: 8mm;
+  left: 6mm;
+  bottom: 6mm;
   display: flex;
   align-items: center;
   gap: 2.5mm;

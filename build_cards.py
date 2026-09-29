@@ -19,7 +19,7 @@ QR_DIR = ROOT / "qr"
 MEASURE_FONT = ROOT / "docs" / "assets" / "fonts" / "arimo-variable.woff2"
 TITLE_FONT_SIZE_PT = 15
 TITLE_WEIGHT = 700
-TITLE_BOX_WIDTH_MM = 68  # 84mm card-left minus the 13mm number column and 3mm gap
+TITLE_BOX_WIDTH_MM = 89  # full card-left width — number now sits inline, not in its own column
 TITLE_MAX_LINES = 3
 MM_PER_PT = 25.4 / 72
 
@@ -64,9 +64,17 @@ def build_card_data(pieces):
         # the same text again as the role line right below it.
         role = "" if not p.get("artist") else p.get("role", "")
         form, medium = p.get("form", ""), p.get("medium", "")
-        form_medium = f"{form} · {medium}" if form and medium else form or medium
+        # Medium explicitly labelled, on its own line, matching the source
+        # document's own "Medium: ..." lines rather than a middle-dot join.
+        if form and medium:
+            form_medium = f"{form}\nMedium: {medium}"
+        elif medium:
+            form_medium = f"Medium: {medium}"
+        else:
+            form_medium = form
         card = {
             "id": p["id"],
+            "num": str(int(p["id"])),  # no leading zero for display, unlike the permanent id/URL
             "title": p["title"],
             "artist": artist,
             "role": role,
@@ -75,7 +83,9 @@ def build_card_data(pieces):
             "qr_path": (QR_DIR / f"{p['id']}.svg").as_uri(),
         }
         cards.append(card)
-        n_lines = wrap_line_count(p["title"])
+        # Measure with the number prefixed, since it now sits inline at the
+        # same size as the title and eats into line 1's available width.
+        n_lines = wrap_line_count(f"{card['num']} {p['title']}")
         if n_lines > TITLE_MAX_LINES:
             overflow.append((p["id"], p["title"], n_lines))
     return cards, overflow
