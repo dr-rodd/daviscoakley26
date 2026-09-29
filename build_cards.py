@@ -109,11 +109,13 @@ def render_4up(cards, card_css: str):
     return out
 
 
-def render_previews(individual_pdf: Path, piece_ids):
+def render_previews(individual_pdf: Path, piece_ids, preview_ids):
     import subprocess
     pieces = list(enumerate(piece_ids, start=1))  # 1 card per page, in doc order
     page_by_id = {pid: page for page, pid in pieces}
-    for pid in ("01", "03", "13"):
+    for old_preview in CARDS_DIR.glob("preview_*.png"):
+        old_preview.unlink()
+    for pid in preview_ids:
         page = page_by_id.get(pid)
         if not page:
             continue
@@ -140,7 +142,9 @@ def generate(pieces, font_dir: str = FONT_DIR):
 
     individual_pdf = render_individual(cards, card_css)
     render_4up(cards, card_css)
-    render_previews(individual_pdf, [c["id"] for c in cards])
+    longest = max(cards, key=lambda c: len(c["title"]))["id"]
+    preview_ids = sorted({cards[0]["id"], cards[-1]["id"], longest})
+    render_previews(individual_pdf, [c["id"] for c in cards], preview_ids)
     return overflow
 
 

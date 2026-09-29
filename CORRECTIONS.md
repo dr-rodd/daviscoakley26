@@ -12,18 +12,35 @@ missing descriptions (pieces 02 and 13) but did **not** address any of the
 wording queries raised above (Voice Within duplicate credit, Approaches
 "Hands-Plaster") — those are all still open, unchanged, in the new file too.
 
-**⚠ Two pieces are missing from this revised document, not just incomplete:**
-**No. 04 "Da" (Aran Young)** and **No. 08 "The Breast Series" (Fiona
-Connaughtan)**. Both were fully present in the original document; in
-`entries_v2.docx` their bulleted entries are simply gone — empty paragraphs
-sit where the text used to be. This looks more like accidental deletion
-while editing than a deliberate withdrawal (piece 08 in particular was
-already complete and needed no changes, so there's no obvious reason it
-would have been intentionally cut). **Nothing has been removed from
-`pieces.yaml` or the site/QR/cards for either piece** — both are left
-exactly as before, pending confirmation. If they are in fact withdrawn, the
-brief's own rule applies: keep their pages up, don't renumber or reuse
-their ids.
+**Two pieces were missing from this revised document — confirmed as an
+intentional withdrawal, not accidental loss:** No. 04 "Da" (Aran Young) and
+No. 08 "The Breast Series" (Fiona Connaughtan). Per instruction, both were
+removed entirely from `pieces.yaml`, and the remaining 11 pieces were
+**renumbered 01-11** (in their original relative order) so the gap doesn't
+show. This deliberately overrides the brief's own "never renumber, ids are
+permanent" rule — a one-time exception, done before anything went to an
+actual printer. Old → new id mapping, for anyone cross-referencing the
+original entry numbers or an earlier draft of the cards/site:
+
+| Old id | New id | Title |
+|---|---|---|
+| 01 | 01 | Artificial Creativity: Standing On The Shoulders Of Algorithms |
+| 02 | 02 | You Are Heard |
+| 03 | 03 | Bealtaine |
+| 04 | — | **Da — withdrawn** |
+| 05 | 04 | The Craft of Care |
+| 06 | 05 | Approaches |
+| 07 | 06 | Lipstick |
+| 08 | — | **The Breast Series — withdrawn** |
+| 09 | 07 | Step by Step |
+| 10 | 08 | The Hands That Carry Tomorrow |
+| 11 | 09 | The Voice Within |
+| 12 | 10 | Balancing space between still time |
+| 13 | 11 | Growing into Ourselves: The Human Journey Across Generations |
+
+Every URL, QR code and printed card for ids 04-11 changed as a result (only
+01-03 kept their original number). Any previously-sent card PDF or shared
+link for pieces 05 and up from before 2026-09-29 is now out of date.
 
 ### 02 — You Are Heard: now complete, but the credit line is ambiguous
 

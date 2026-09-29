@@ -1,4 +1,4 @@
-# Professor Davis Coakley Award 2026 — source of truth for all 13 pieces.
+# Professor Davis Coakley Award 2026 — source of truth for all pieces.
 #
 # Edit this file to fix a description, add a missing one, or update any
 # field. Then run `python build.py` to regenerate the site, QR codes and
@@ -6,7 +6,15 @@
 #
 # The `id` field is PERMANENT once cards are printed and QR codes are
 # generated — it is baked into the printed QR/URL. Never renumber an
-# existing id, even if a piece is withdrawn.
+# existing id, even if a piece is withdrawn — UNLESS you are intentionally
+# hiding that a withdrawal happened, as was done once already here.
+#
+# 2026-09-29: "Da" (Aran Young) and "The Breast Series" (Fiona Connaughtan)
+# were intentionally withdrawn and removed entirely (not just hidden) from
+# this file. The 11 remaining pieces were renumbered 01-11 in their
+# original relative order so there's no visible gap. This was done BEFORE
+# any card was sent to print — see CORRECTIONS.md for the old→new id
+# mapping and why this is a one-time exception to the rule above.
 
 - id: "01"
   title: "Artificial Creativity: Standing On The Shoulders Of Algorithms"
@@ -66,20 +74,6 @@
   status: complete
 
 - id: "04"
-  title: "Da"
-  artist: "Aran Young"
-  role: "Visual Artist"
-  affiliation: ""
-  form: "Painting"
-  medium: "Oil on canvas with encaustic medium"
-  description: []
-  sections: []
-  closing: []
-  video_url: ""
-  audio_url: ""
-  status: missing_description
-
-- id: "05"
   title: "The Craft of Care"
   artist: "Siobhán O’Reilly"
   role: "PhD researcher, University of Limerick"
@@ -94,7 +88,7 @@
   audio_url: ""
   status: complete
 
-- id: "06"
+- id: "05"
   title: "Approaches"
   artist: "Dr. Ann Marie Walsh"
   role: "Geriatric SpR"
@@ -112,7 +106,7 @@
   audio_url: ""
   status: complete
 
-- id: "07"
+- id: "06"
   title: "Lipstick"
   artist: "Éilis O’Neill"
   role: "Animator"
@@ -127,25 +121,7 @@
   audio_url: ""
   status: complete
 
-- id: "08"
-  title: "The Breast Series"
-  artist: "Fiona Connaughtan"
-  role: "Nurse Lead of National Clinical Programme for Stroke"
-  affiliation: ""
-  form: "Ink drawing"
-  medium: "Original artwork: ink on paper. Exhibited work: ink drawing, digitally reproduced as an archival canvas print"
-  description:
-    - "The Breast Series uses the repeated drawing of a mannequin to give form to experiences shared by generations of women within healthcare. Through repetition, the drawing moves beyond the individual to become a collective narrative, speaking to enduring patterns within women’s experiences of healthcare across generations, roles and time."
-    - "Originating from a single hand-drawn scribble, the layered pen marks capture the unravelling of words left unsaid, giving form to women’s voices that have too often been overlooked, disregarded or silenced. Subtle shifts in tonal value move from darker forms towards brighter possibilities, reflecting a gradual movement from silence towards voice, from invisibility towards visibility, and from objectification towards agency. While the work acknowledges enduring inequalities within healthcare, it also suggests the possibility of change."
-    - "Responding to the conference theme, Ageing with Innovation: Are We Ready?, the work combines traditional hand-drawn mark-making with artificial intelligence as interconnected creative processes. The original drawing carries the intimacy of lived experience, while AI expands its visual language through repetition and tonal variation, revealing patterns that may remain unseen in a single drawing alone."
-    - "Ultimately, the work asks whether innovation can help healthcare systems evolve—not only in how they care for ageing populations, but in how they recognise, value and amplify the voices of women as they age, whether as patients, caregivers or healthcare professionals."
-  sections: []
-  closing: []
-  video_url: ""
-  audio_url: ""
-  status: complete
-
-- id: "09"
+- id: "07"
   title: "Step by Step"
   artist: "Aoife McFeely"
   role: "Geriatric Medicine SpR, SVUH"
@@ -161,7 +137,7 @@
   audio_url: ""
   status: complete
 
-- id: "10"
+- id: "08"
   title: "The Hands That Carry Tomorrow"
   artist: "Geethu Xavier"
   role: "CNS TUH"
@@ -184,7 +160,7 @@
 # "role is the group; Affiliated Institution goes in affiliation." This
 # may render oddly on the card/page (byline with nothing after "by").
 # See CORRECTIONS.md for detail — not forgotten, just not yet decided.
-- id: "11"
+- id: "09"
   title: "The Voice Within"
   artist: ""
   role: "Members of Laryngectomy Outpatients Music Therapy Voice Group, St. James’s Hospital, Dublin"
@@ -199,7 +175,7 @@
   audio_url: ""
   status: complete
 
-- id: "12"
+- id: "10"
   title: "Balancing space between still time"
   artist: "Dr. Karie Dennehy"
   role: "Consultant in Palliative Medicine in Marymount University Hospital & Hospice, and Cork University Hospital."
@@ -213,7 +189,7 @@
   audio_url: ""
   status: missing_description
 
-- id: "13"
+- id: "11"
   title: "Growing into Ourselves: The Human Journey Across Generations"
   artist: ""
   role: "Keyleigh Murphy (Transition Year Art student), Claire Doyle (Art teacher), Presentation Secondary School Kilkenny; Kathleen Kenny, Margaret Farrell, Teresa Nolan (Carlow Kilkenny ICPOP – Integrated Care Programme for Older Persons)"

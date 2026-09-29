@@ -118,6 +118,12 @@ def decode_png(png_bytes: bytes) -> str:
 
 def generate(pieces, base_url: str):
     QR_DIR.mkdir(exist_ok=True)
+    current_ids = {p["id"] for p in pieces}
+    for stale in QR_DIR.glob("*"):
+        if stale.stem not in current_ids and stale.suffix in (".svg", ".png"):
+            stale.unlink()
+            print(f"Removed stale {stale.name} (id no longer in pieces.yaml)")
+
     urls = [f"{base_url}{p['id']}/" for p in pieces]
     version = required_version(urls)
     print(f"QR version {version} ({17 + 4 * version}x{17 + 4 * version} modules) fits all {len(urls)} URLs")
