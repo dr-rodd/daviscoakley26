@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent
 TEMPLATES_DIR = ROOT / "templates"
 CARDS_DIR = ROOT / "cards"
 FONT_DIR = (ROOT / "docs" / "assets" / "fonts").as_uri()
-LOGO_PATH = (ROOT / "docs" / "assets" / "logo-seal.png").as_uri()
+LOGO_PATH = (ROOT / "docs" / "assets" / "logo-seal-navy.png").as_uri()  # cards keep the logo in its real colour
 QR_DIR = ROOT / "qr"
 
 MEASURE_FONT = ROOT / "docs" / "assets" / "fonts" / "arimo-variable.woff2"

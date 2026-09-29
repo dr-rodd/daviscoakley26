@@ -3,8 +3,10 @@
    148mm x 105mm; the two page setups differ only in @page size/margins
    and how many cards sit on a sheet.
 
-   Museum-style: black only, Helvetica-family (Arimo) throughout, number
-   set prominently to the left of the title. */
+   Museum-style: black only except the logo (kept in its real navy),
+   Helvetica-family (Arimo) throughout, number set prominently to the
+   left of the title, institutional credit + logo at bottom left, QR at
+   bottom right. */
 
 @font-face {
   font-family: "Arimo";
@@ -41,21 +43,12 @@ body {
   break-after: page;
 }
 
-.card-rule {
-  position: absolute;
-  top: 8mm;
-  left: 8mm;
-  right: 8mm;
-  height: 0.5mm;
-  background: var(--ink);
-}
-
 .card-left {
   position: absolute;
-  top: 12mm;
+  top: 10mm;
   left: 8mm;
   width: 84mm;
-  bottom: 8mm;
+  bottom: 21mm;
   display: flex;
   gap: 3mm;
 }
@@ -73,16 +66,6 @@ body {
 .card-text {
   flex: 1;
   min-width: 0;
-}
-
-.card-label {
-  margin: 0 0 2.5mm;
-  font-family: "Arimo", sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  font-size: 7.5pt;
-  color: var(--ink);
 }
 
 .card-title {
@@ -114,22 +97,23 @@ body {
 }
 
 .card-form {
-  margin: 2mm 0 0;
+  margin: 2.5mm 0 0;
   font-family: "Arimo", sans-serif;
-  font-size: 8.5pt;
-  color: var(--secondary);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-size: 9.5pt;
+  color: var(--ink);
 }
 
 .card-right {
   position: absolute;
-  top: 12mm;
   bottom: 8mm;
   right: 8mm;
   width: 44mm;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .card-qr {
@@ -146,10 +130,28 @@ body {
   max-width: 34mm;
 }
 
-.card-logo {
+.card-footer-left {
   position: absolute;
   left: 8mm;
   bottom: 8mm;
-  height: 8mm;
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+}
+
+.card-logo {
+  height: 10mm;
   width: auto;
+  display: block;
+}
+
+.card-label {
+  margin: 0;
+  font-family: "Arimo", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 7.5pt;
+  color: var(--ink);
+  white-space: nowrap;
 }

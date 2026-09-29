@@ -23,11 +23,9 @@
 {% for card in cards %}
 <div class="card">
   <div class="card-bleed"></div>
-  <div class="card-rule"></div>
   <div class="card-left">
     <span class="card-num">{{ card.id }}</span>
     <div class="card-text">
-      <p class="card-label">Davis Coakley Award 2026</p>
       <h2 class="card-title">{{ card.title }}</h2>
       <p class="card-artist">{{ card.artist }}</p>
       {% if card.role %}<p class="card-role">{{ card.role }}</p>{% endif %}
@@ -39,7 +37,10 @@
     <img class="card-qr" src="{{ card.qr_path }}">
     <p class="card-qr-caption">Scan to read more</p>
   </div>
-  <img class="card-logo" src="{{ logo_path }}">
+  <div class="card-footer-left">
+    <img class="card-logo" src="{{ logo_path }}">
+    <p class="card-label">Davis Coakley Award 2026</p>
+  </div>
 </div>
 {% endfor %}
 </body>

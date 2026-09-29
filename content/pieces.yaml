@@ -195,9 +195,13 @@
 
 - id: "11"
   title: "Growing into Ourselves: The Human Journey Across Generations"
-  artist: ""
-  role: "Keyleigh Murphy (Transition Year Art student), Claire Doyle (Art teacher), Presentation Secondary School Kilkenny; Kathleen Kenny, Margaret Farrell, Teresa Nolan (Carlow Kilkenny ICPOP – Integrated Care Programme for Older Persons)"
-  affiliation: ""
+  # Credit line uses footnote-style superscripts (per instruction) so the
+  # name line stays short and matches the artist/role/affiliation rhythm
+  # of every other card and piece page: names+superscripts up top, the
+  # role/department key spelled out below.
+  artist: "Keyleigh Murphy¹, Claire Doyle², Kathleen Kenny³, Margaret Farrell³, Teresa Nolan³"
+  role: "¹ Transition Year Art student · ² Art teacher · ³ Service Users"
+  affiliation: "¹,² Presentation Secondary School Kilkenny · ³ Carlow Kilkenny ICPOP"
   form: "Painting"
   medium: ""
   description:
