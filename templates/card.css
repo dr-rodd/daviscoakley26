@@ -49,23 +49,24 @@ body {
   left: 8mm;
   width: 84mm;
   bottom: 21mm;
-  display: flex;
-  gap: 3mm;
+}
+
+.card-left::after {
+  /* clearfix, so card-left's own height accounts for the floated number */
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .card-num {
-  flex: none;
+  float: left;
   width: 13mm;
+  margin-right: 3mm;
   font-size: 28pt;
   font-weight: 700;
   line-height: 1;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
-}
-
-.card-text {
-  flex: 1;
-  min-width: 0;
 }
 
 .card-title {
@@ -91,6 +92,7 @@ body {
 .card-affiliation {
   margin: 0 0 1mm;
   font-family: "Arimo", sans-serif;
+  font-style: italic;
   font-size: 8.5pt;
   line-height: 1.25;
   color: var(--secondary);
@@ -99,10 +101,9 @@ body {
 .card-form {
   margin: 2.5mm 0 0;
   font-family: "Arimo", sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  font-size: 9.5pt;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8.5pt;
   color: var(--ink);
 }
 

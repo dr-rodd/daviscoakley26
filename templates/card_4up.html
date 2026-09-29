@@ -41,13 +41,11 @@
   <div class="card" style="top: {{ card.top }}; left: {{ card.left }};">
     <div class="card-left">
       <span class="card-num">{{ card.id }}</span>
-      <div class="card-text">
-        <h2 class="card-title">{{ card.title }}</h2>
-        <p class="card-artist">{{ card.artist }}</p>
-        {% if card.role %}<p class="card-role">{{ card.role }}</p>{% endif %}
-        {% if card.affiliation %}<p class="card-affiliation">{{ card.affiliation }}</p>{% endif %}
-        <p class="card-form">{{ card.form }}</p>
-      </div>
+      <h2 class="card-title">{{ card.title }}</h2>
+      <p class="card-artist">{{ card.artist }}</p>
+      {% if card.role %}<p class="card-role">{{ card.role }}</p>{% endif %}
+      {% if card.affiliation %}<p class="card-affiliation">{{ card.affiliation }}</p>{% endif %}
+      <p class="card-form">{{ card.form_medium }}</p>
     </div>
     <div class="card-right">
       <img class="card-qr" src="{{ card.qr_path }}">

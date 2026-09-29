@@ -63,13 +63,15 @@ def build_card_data(pieces):
         # If artist fell back to role (group-credited pieces), don't repeat
         # the same text again as the role line right below it.
         role = "" if not p.get("artist") else p.get("role", "")
+        form, medium = p.get("form", ""), p.get("medium", "")
+        form_medium = f"{form} · {medium}" if form and medium else form or medium
         card = {
             "id": p["id"],
             "title": p["title"],
             "artist": artist,
             "role": role,
             "affiliation": p.get("affiliation", ""),
-            "form": p.get("form", ""),
+            "form_medium": form_medium,
             "qr_path": (QR_DIR / f"{p['id']}.svg").as_uri(),
         }
         cards.append(card)
