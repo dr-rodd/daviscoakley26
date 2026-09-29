@@ -5,6 +5,77 @@ This log records every change made to artists' source text while extracting
 listed here was altered — wording, tone and each artist's own capitalisation
 of their title are preserved exactly as submitted.
 
+## Update — `source/entries_v2.docx` (2026-09-29)
+
+A revised source document was supplied. It filled in the two previously
+missing descriptions (pieces 02 and 13) but did **not** address any of the
+wording queries raised above (Voice Within duplicate credit, Approaches
+"Hands-Plaster") — those are all still open, unchanged, in the new file too.
+
+**⚠ Two pieces are missing from this revised document, not just incomplete:**
+**No. 04 "Da" (Aran Young)** and **No. 08 "The Breast Series" (Fiona
+Connaughtan)**. Both were fully present in the original document; in
+`entries_v2.docx` their bulleted entries are simply gone — empty paragraphs
+sit where the text used to be. This looks more like accidental deletion
+while editing than a deliberate withdrawal (piece 08 in particular was
+already complete and needed no changes, so there's no obvious reason it
+would have been intentionally cut). **Nothing has been removed from
+`pieces.yaml` or the site/QR/cards for either piece** — both are left
+exactly as before, pending confirmation. If they are in fact withdrawn, the
+brief's own rule applies: keep their pages up, don't renumber or reuse
+their ids.
+
+### 02 — You Are Heard: now complete, but the credit line is ambiguous
+
+Source text (verbatim): "Lanyi Yan, Lanyi Yan (composer and singer), Grace
+Park (pianist, St James's Hospital" — the name "Lanyi Yan" appears twice in
+a row, and the parenthesis after "pianist" is never closed. Reconstructed
+as:
+- `artist`: "Lanyi Yan"
+- `role`: "Composer and singer"
+- `affiliation`: "with Grace Park, pianist, St James's Hospital"
+
+**This is a reconstruction, not a transcription — please confirm it's
+correct**, particularly whether "St James's Hospital" belongs to Grace
+Park's credit or is a separate affiliation line for the whole piece.
+
+Description added verbatim (typographic quotes/apostrophes normalised,
+non-breaking spaces converted to regular spaces, per the standing policy
+below). Missing a final full stop in the source — left as is; see "Flagged,
+not changed."
+
+### 13 — Growing into Ourselves: credited artist changed entirely
+
+The source now credits five people, not "Liz Nolan" as before: Keyleigh
+Murphy (Transition Year Art student), Claire Doyle (Art teacher) of
+Presentation Secondary School Kilkenny, and Kathleen Kenny, Margaret
+Farrell, Teresa Nolan of Carlow Kilkenny ICPOP. Liz Nolan is now named
+*inside* the description as the project's facilitator, not as the artist.
+This reads as a genuine correction (the original document apparently had a
+placeholder or wrong name), not an error introduced this round — but
+flagging clearly since it changes who's credited.
+
+Source text (verbatim) for the credit line: "Keyleigh Murphy, (Transition
+Year Art student, Claire Doyle Art teacher, Presentation Secondary School
+Kilkenny); Kathleen Kenny, Margaret Farrell, Teresa Nolan (Carlow Kilkenny
+ICPOP – Integrated Care Programme for Older Persons)." Reconstructed into
+`role` (see `pieces.yaml`) by moving a stray comma and adding one missing
+comma ("Claire Doyle Art teacher" → "Claire Doyle (Art teacher)") so it
+reads as intended — **please confirm this reconstruction**. `artist` is
+left blank and the full credit put in `role`, matching how piece 11 (The
+Voice Within) handles a group/multi-person credit.
+
+`form: "Painting"` is inferred from the description ("inspired the
+painting", "an original artwork") — the source still has no discrete form
+field, same situation as pieces 04 and 08 below.
+
+On the printed card, this credit line is long enough to wrap to five lines
+under the QR code — it still fits inside the card without overflowing, but
+it's visibly denser than every other card. Flagging as a design judgment
+call: keep the full credit as-is, or would you prefer something shorter
+(e.g. "Keyleigh Murphy, Claire Doyle & the Carlow Kilkenny ICPOP team") on
+the card specifically, with the full list staying on the web page?
+
 ## Corrections applied (as instructed)
 
 | Piece | Before | After | Reason |
@@ -71,17 +142,23 @@ flagging for your review:
   nothing after "by"). **Unresolved — flagging so it isn't forgotten**,
   not deciding it here. Template will need to handle the empty-artist
   case gracefully either way.
-- **13 — Growing into Ourselves: The Human Journey Across Generations**
-  (Liz Nolan): role, form, medium and description are all absent from the
-  source document — this is the one entry that needs new material from
-  the artist before it can go to print, not just a text fix.
+- **13 — Growing into Ourselves**: "A series of conversations, workshop
+  and quotes from ICPOP referrals inspired the painting" — "workshop"
+  reads like it should be plural ("workshops") to agree with
+  "conversations... and quotes," but this is a plausible artist typo, not
+  a listed correction — left verbatim.
+- **02 — You Are Heard** and **13 — Growing into Ourselves**: both new
+  descriptions end without a final full stop in the source (e.g.
+  "...RDS, Dublin" and "...support positive ageing" both just stop).
+  Left as submitted rather than silently adding punctuation.
 
 ## Fields verified empty (not omissions)
 
-- **02 — You Are Heard** (Lanyi Yan), **04 — Da** (Aran Young),
-  **12 — Balancing space between still time** (Dr Karie Dennehy): no
-  description text anywhere in the source document. `status:
-  missing_description`; their piece pages will show only the header and
-  metadata until a description is added.
+- **04 — Da** (Aran Young), **12 — Balancing space between still time**
+  (Dr Karie Dennehy): no description text anywhere in the source document.
+  `status: missing_description`; their piece pages will show only the
+  header and metadata until a description is added. (02 and 13 were in
+  this category too as of the first pass — both now have descriptions,
+  see the v2 update above.)
 - **07 — Lipstick** and **02 — You Are Heard**: source has no video or
   audio link for either piece; `video_url` / `audio_url` left empty.

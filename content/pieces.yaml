@@ -38,16 +38,17 @@
 - id: "02"
   title: "You Are Heard"
   artist: "Lanyi Yan"
-  role: "Music and Health Researcher"
-  affiliation: ""
+  role: "Composer and singer"
+  affiliation: "with Grace Park, pianist, St James’s Hospital"
   form: "Music Composition"
   medium: ""
-  description: []
+  description:
+    - "This piece is the outcome composition of Lanyi Yan’s musician residency in St James’s Hospital in 2024. She conducted a six-week Music-and-Health project with the hospital inpatients and older adults from the community. Through this process, she gathered stories about creative arts from the older adults, and composed this piece inspired by the stories. This piece was premiered in Mercer Institute of Successful Ageing, St James’s Hospital in December 2024, and performed in St James’s Church and RDS, Dublin"
   sections: []
   closing: []
   video_url: ""
   audio_url: ""
-  status: missing_description
+  status: complete
 
 - id: "03"
   title: "Bealtaine"
@@ -214,14 +215,18 @@
 
 - id: "13"
   title: "Growing into Ourselves: The Human Journey Across Generations"
-  artist: "Liz Nolan"
-  role: ""
+  artist: ""
+  role: "Keyleigh Murphy (Transition Year Art student), Claire Doyle (Art teacher), Presentation Secondary School Kilkenny; Kathleen Kenny, Margaret Farrell, Teresa Nolan (Carlow Kilkenny ICPOP – Integrated Care Programme for Older Persons)"
   affiliation: ""
-  form: ""
+  form: "Painting"
   medium: ""
-  description: []
+  description:
+    - "This small intergenerational art project aimed to foster awareness of ageing well in the community between ICPOP service users and the local secondary school. A series of conversations, workshop and quotes from ICPOP referrals inspired the painting. Key themes to emerge were: the importance of creativity, curiosity and growth, having a sense of purpose, and the value of social connections to benefit health and wellbeing. The project was facilitated by Liz Nolan, Community Connector, Carlow/Kilkenny Integrated Care Programme for Older Persons (ICPOP)"
+    - "The aim of the intergenerational project: to foster awareness of ageing well in the community."
+    - "The outcome: an original artwork for installation in the new ICPOP hub: Oriel House, Kilkenny. Our hope: to spark conversations about what it means to age well among future referrals to the ICPOP team: bringing creativity to life in a meaningful, positive and pragmatic way."
+    - "In medical terms, the project reflects ‘What Matters Most?’, ‘Mentation’ (4Ms framework), along with the MECC (Making Every Contact Count) programme to support positive ageing"
   sections: []
   closing: []
   video_url: ""
   audio_url: ""
-  status: missing_fields
+  status: complete
