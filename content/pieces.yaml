@@ -71,6 +71,10 @@
   closing: []
   video_url: ""
   audio_url: ""
+  # The full text, as a click-through PDF exactly as the artist formatted it
+  # (their layout, not ours — see README for how this field works).
+  attachment_url: "assets/pdfs/bealtaine-geraint-warlow.pdf"
+  attachment_label: "Read “Bealtaine” in full (PDF)"
   status: complete
 
 - id: "04"

@@ -14,7 +14,7 @@
 .card-bleed {
   position: absolute;
   inset: -3mm;
-  background: var(--bg, #faf8f5);
+  background: #ffffff;
   z-index: -1;
 }
 </style>
@@ -25,14 +25,19 @@
   <div class="card-bleed"></div>
   <div class="card-rule"></div>
   <div class="card-left">
-    <p class="card-label">Davis Coakley Award 2026 &middot; No. {{ card.id }}</p>
-    <h2 class="card-title">{{ card.title }}</h2>
-    <p class="card-artist">{{ card.artist }}</p>
-    <p class="card-form">{{ card.form }}</p>
+    <span class="card-num">{{ card.id }}</span>
+    <div class="card-text">
+      <p class="card-label">Davis Coakley Award 2026</p>
+      <h2 class="card-title">{{ card.title }}</h2>
+      <p class="card-artist">{{ card.artist }}</p>
+      {% if card.role %}<p class="card-role">{{ card.role }}</p>{% endif %}
+      {% if card.affiliation %}<p class="card-affiliation">{{ card.affiliation }}</p>{% endif %}
+      <p class="card-form">{{ card.form }}</p>
+    </div>
   </div>
   <div class="card-right">
     <img class="card-qr" src="{{ card.qr_path }}">
-    <p class="card-qr-caption">Scan to read about this work</p>
+    <p class="card-qr-caption">Scan to read more</p>
   </div>
   <img class="card-logo" src="{{ logo_path }}">
 </div>

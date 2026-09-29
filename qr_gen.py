@@ -1,7 +1,7 @@
 """Generate the exhibition QR codes: one per piece, identical module grid,
 dot-style data modules with solid finder-pattern eyes for reliable scanning,
-in IGS navy. Verifies every code decodes back to its exact URL before
-letting the build succeed.
+in black (museum-style, black-only palette). Verifies every code decodes
+back to its exact URL before letting the build succeed.
 
 Called from build.py; can also be run standalone: `python qr_gen.py`.
 """
@@ -16,11 +16,7 @@ from qrcode.constants import ERROR_CORRECT_M
 ROOT = Path(__file__).resolve().parent
 QR_DIR = ROOT / "qr"
 
-# Sampled from the real IGS logo you supplied (docs/assets/logo-seal.png) —
-# this is their actual navy, not an invented brand colour. High contrast on
-# white/off-white, unlike the accent red, which is why it's used here and
-# nowhere near body text.
-QR_DARK = "#18316F"
+QR_DARK = "#111111"
 BORDER_MODULES = 4
 DOT_RADIUS_RATIO = 0.42  # circle radius as a fraction of one module cell
 

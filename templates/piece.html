@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <article class="piece">
-  <p class="eyebrow eyebrow-accent">No. {{ piece.id }}</p>
-  <h1{% if piece.title_lang %} lang="{{ piece.title_lang }}"{% endif %}>{{ piece.title }}</h1>
-  <div class="byline">
-    {% if piece.artist %}<p class="artist">{{ piece.artist }}</p>{% endif %}
-    {% if piece.role %}<p class="role">{{ piece.role }}</p>{% endif %}
-    {% if piece.affiliation %}<p class="affiliation">{{ piece.affiliation }}</p>{% endif %}
+  <div class="piece-header numbered-row">
+    <span class="num">{{ piece.id }}</span>
+    <div class="body">
+      <h1{% if piece.title_lang %} lang="{{ piece.title_lang }}"{% endif %}>{{ piece.title }}</h1>
+      <div class="byline">
+        {% if piece.artist %}<p class="artist">{{ piece.artist }}</p>{% endif %}
+        {% if piece.role %}<p class="role">{{ piece.role }}</p>{% endif %}
+        {% if piece.affiliation %}<p class="affiliation">{{ piece.affiliation }}</p>{% endif %}
+      </div>
+      {% if piece.form or piece.medium %}
+      <p class="form-medium">{{ piece.form }}{% if piece.form and piece.medium %} · {% endif %}{{ piece.medium }}</p>
+      {% endif %}
+    </div>
   </div>
-  {% if piece.form or piece.medium %}
-  <p class="form-medium">{{ piece.form }}{% if piece.form and piece.medium %} · {% endif %}{{ piece.medium }}</p>
-  {% endif %}
 
   {% if piece.has_content %}
     {% for para in piece.description_html %}
@@ -29,6 +33,10 @@
       {% endfor %}
     </div>
     {% endif %}
+  {% endif %}
+
+  {% if piece.attachment_url %}
+  <p class="attachment"><a href="{{ asset_prefix }}{{ piece.attachment_url }}" target="_blank" rel="noopener">{{ piece.attachment_label or "Read the full piece (PDF)" }}</a></p>
   {% endif %}
 
   {% if piece.video_embed_url %}

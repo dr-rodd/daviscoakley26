@@ -16,10 +16,10 @@ FONT_DIR = (ROOT / "docs" / "assets" / "fonts").as_uri()
 LOGO_PATH = (ROOT / "docs" / "assets" / "logo-seal.png").as_uri()
 QR_DIR = ROOT / "qr"
 
-MEASURE_FONT = ROOT / "docs" / "assets" / "fonts" / "eb-garamond-variable.woff2"
-TITLE_FONT_SIZE_PT = 17.5
-TITLE_WEIGHT = 600
-TITLE_BOX_WIDTH_MM = 84
+MEASURE_FONT = ROOT / "docs" / "assets" / "fonts" / "arimo-variable.woff2"
+TITLE_FONT_SIZE_PT = 15
+TITLE_WEIGHT = 700
+TITLE_BOX_WIDTH_MM = 68  # 84mm card-left minus the 13mm number column and 3mm gap
 TITLE_MAX_LINES = 3
 MM_PER_PT = 25.4 / 72
 
@@ -59,10 +59,16 @@ def build_card_data(pieces):
     cards = []
     overflow = []
     for p in pieces:
+        artist = p.get("artist") or p.get("role") or ""
+        # If artist fell back to role (group-credited pieces), don't repeat
+        # the same text again as the role line right below it.
+        role = "" if not p.get("artist") else p.get("role", "")
         card = {
             "id": p["id"],
             "title": p["title"],
-            "artist": p.get("artist") or p.get("role") or "",
+            "artist": artist,
+            "role": role,
+            "affiliation": p.get("affiliation", ""),
             "form": p.get("form", ""),
             "qr_path": (QR_DIR / f"{p['id']}.svg").as_uri(),
         }
@@ -135,8 +141,8 @@ def generate(pieces, font_dir: str = FONT_DIR):
 
     cards, overflow = build_card_data(pieces)
     if overflow:
-        print("\nTITLE OVERFLOW at shared card size (17.5pt, 3-line budget) — reporting, not shrinking:",
-              file=sys.stderr)
+        print(f"\nTITLE OVERFLOW at shared card size ({TITLE_FONT_SIZE_PT}pt, {TITLE_MAX_LINES}-line budget) "
+              "— reporting, not shrinking:", file=sys.stderr)
         for id_, title, n in overflow:
             print(f"  {id_}: {n} lines needed — {title!r}", file=sys.stderr)
 

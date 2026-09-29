@@ -1,24 +1,26 @@
 /* Print card stylesheet — shared by the individual A6 (with bleed) and
    A4 4-up (with crop marks) PDFs. Card content is always exactly
    148mm x 105mm; the two page setups differ only in @page size/margins
-   and how many cards sit on a sheet. */
+   and how many cards sit on a sheet.
+
+   Museum-style: black only, Helvetica-family (Arimo) throughout, number
+   set prominently to the left of the title. */
 
 @font-face {
-  font-family: "EB Garamond";
-  src: url("{{ font_dir }}/eb-garamond-variable.woff2") format("woff2");
+  font-family: "Arimo";
+  src: url("{{ font_dir }}/arimo-variable.woff2") format("woff2");
   font-weight: 400 800;
   font-style: normal;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("{{ font_dir }}/inter-variable.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
+  font-family: "Arimo";
+  src: url("{{ font_dir }}/arimo-italic-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: italic;
 }
 
 :root {
-  --accent: #ff414d;
-  --text: #1f1f1f;
+  --ink: #111111;
   --secondary: #5a5a5a;
 }
 
@@ -26,8 +28,8 @@
 
 body {
   margin: 0;
-  font-family: "EB Garamond", serif;
-  color: var(--text);
+  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
 }
 
 .card {
@@ -44,56 +46,83 @@ body {
   top: 8mm;
   left: 8mm;
   right: 8mm;
-  height: 0.6mm;
-  background: var(--accent);
+  height: 0.5mm;
+  background: var(--ink);
 }
 
 .card-left {
   position: absolute;
-  top: 13mm;
+  top: 12mm;
   left: 8mm;
   width: 84mm;
   bottom: 8mm;
+  display: flex;
+  gap: 3mm;
+}
+
+.card-num {
+  flex: none;
+  width: 13mm;
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.card-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .card-label {
-  margin: 0 0 3mm;
-  font-family: "Inter", sans-serif;
-  font-variant: small-caps;
+  margin: 0 0 2.5mm;
+  font-family: "Arimo", sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 0.07em;
-  font-size: 9.5pt;
-  color: var(--accent);
+  letter-spacing: 0.06em;
+  font-size: 7.5pt;
+  color: var(--ink);
 }
 
 .card-title {
-  margin: 0 0 4mm;
-  font-family: "EB Garamond", serif;
-  font-weight: 600;
-  font-size: 17.5pt;
-  line-height: 1.18;
-  color: var(--text);
-  max-height: 23mm;
+  margin: 0 0 3mm;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  font-size: 15pt;
+  line-height: 1.16;
+  color: var(--ink);
+  max-height: 21mm;
   overflow: hidden;
 }
 
 .card-artist {
-  margin: 0 0 1.5mm;
-  font-family: "EB Garamond", serif;
-  font-size: 12pt;
-  color: var(--text);
+  margin: 0 0 1mm;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: var(--ink);
+}
+
+.card-role,
+.card-affiliation {
+  margin: 0 0 1mm;
+  font-family: "Arimo", sans-serif;
+  font-size: 8.5pt;
+  line-height: 1.25;
+  color: var(--secondary);
 }
 
 .card-form {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 9.5pt;
+  margin: 2mm 0 0;
+  font-family: "Arimo", sans-serif;
+  font-size: 8.5pt;
   color: var(--secondary);
 }
 
 .card-right {
   position: absolute;
-  top: 13mm;
+  top: 12mm;
   bottom: 8mm;
   right: 8mm;
   width: 44mm;
@@ -110,7 +139,7 @@ body {
 
 .card-qr-caption {
   margin: 3mm 0 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Arimo", sans-serif;
   font-size: 7.5pt;
   color: var(--secondary);
   text-align: center;
