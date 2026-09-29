@@ -81,6 +81,7 @@ def load_pieces():
     pieces = []
     for p in raw:
         piece = dict(p)
+        piece["num"] = str(int(piece["id"]))  # no leading zero for display, unlike the permanent id/URL
         piece["byline_display"] = piece.get("artist") or piece.get("role") or ""
         piece["has_content"] = piece["status"] not in NO_DESCRIPTION_STATUSES and bool(
             piece.get("description") or piece.get("sections") or piece.get("closing")
@@ -112,7 +113,7 @@ def og_description_for(piece) -> str:
         return (first[:157] + "…") if len(first) > 160 else first
     bits = [b for b in (piece.get("form"), piece.get("byline_display")) if b]
     tail = " — ".join(bits) if bits else "Professor Davis Coakley Award 2026"
-    return f"{tail}. Professor Davis Coakley Award 2026, 73rd IGS Annual & Scientific Meeting, Cork."
+    return f"{tail}. Professor Davis Coakley Award 2026, 73rd IGS Annual Scientific Meeting, Cork."
 
 
 def build_site(pieces):
@@ -135,9 +136,9 @@ def build_site(pieces):
 
     index_html = index_tpl.render(
         pieces=pieces,
-        page_title="Professor Davis Coakley Award 2026 — 73rd IGS Annual & Scientific Meeting",
+        page_title="Professor Davis Coakley Award 2026 — 73rd IGS Annual Scientific Meeting",
         og_title="Professor Davis Coakley Award 2026",
-        og_description="Ageing with Innovation: Are We Ready? — 13 works from the Professor Davis Coakley Award 2026, 73rd IGS Annual & Scientific Meeting, Cork.",
+        og_description=f"Ageing with Innovation: Are We Ready? — {len(pieces)} works from the Professor Davis Coakley Award 2026, 73rd IGS Annual Scientific Meeting, Cork.",
         canonical_url=BASE_URL,
         base_url=BASE_URL,
         asset_prefix="",

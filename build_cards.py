@@ -85,7 +85,7 @@ def build_card_data(pieces):
         cards.append(card)
         # Measure with the number prefixed, since it now sits inline at the
         # same size as the title and eats into line 1's available width.
-        n_lines = wrap_line_count(f"{card['num']} {p['title']}")
+        n_lines = wrap_line_count(f"{card['num']}.  {p['title']}")
         if n_lines > TITLE_MAX_LINES:
             overflow.append((p["id"], p["title"], n_lines))
     return cards, overflow

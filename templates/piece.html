@@ -1,19 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <article class="piece">
-  <div class="piece-header numbered-row">
-    <span class="num">{{ piece.id }}</span>
-    <div class="body">
-      <h1{% if piece.title_lang %} lang="{{ piece.title_lang }}"{% endif %}>{{ piece.title }}</h1>
-      <div class="byline">
-        {% if piece.artist %}<p class="artist">{{ piece.artist }}</p>{% endif %}
-        {% if piece.role %}<p class="role">{{ piece.role }}</p>{% endif %}
-        {% if piece.affiliation %}<p class="affiliation">{{ piece.affiliation }}</p>{% endif %}
-      </div>
-      {% if piece.form_medium %}
-      <p class="form-medium">{{ piece.form_medium }}</p>
-      {% endif %}
+  <div class="piece-header">
+    <h1{% if piece.title_lang %} lang="{{ piece.title_lang }}"{% endif %}><span class="num">{{ piece.num }}.</span>{{ piece.title }}</h1>
+    <div class="byline">
+      {% if piece.artist %}<p class="artist">{{ piece.artist }}</p>{% endif %}
+      {% if piece.role %}<p class="role">{{ piece.role }}</p>{% endif %}
+      {% if piece.affiliation %}<p class="affiliation">{{ piece.affiliation }}</p>{% endif %}
     </div>
+    {% if piece.form_medium %}
+    <p class="form-medium">{{ piece.form_medium }}</p>
+    {% endif %}
   </div>
 
   {% if piece.has_content %}

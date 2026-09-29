@@ -91,24 +91,15 @@ main {
   margin: 0 0 0.35rem;
 }
 
-/* number-prominent-left layout, shared by index rows and the piece header */
-.numbered-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.numbered-row .num {
-  flex: none;
+/* Piece number set inline at the start of a title, same size/weight as
+   the title itself, with a hanging indent so a wrapped second line
+   aligns under the title text rather than the number — shared by the
+   index list and the piece page heading. */
+.num {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  line-height: 1;
   color: var(--ink);
-}
-
-.numbered-row .body {
-  flex: 1;
-  min-width: 0;
+  margin-right: 0.4em;
 }
 
 /* ---- index page ---- */
@@ -149,15 +140,12 @@ main {
   padding: 1rem 0;
 }
 
-.work-list .num {
-  font-size: 1.5rem;
-  min-width: 2ch;
-}
-
 .work-title {
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
 }
 
 .work-meta {
@@ -169,15 +157,13 @@ main {
 
 /* ---- piece page ---- */
 
-.piece-header .num {
-  font-size: clamp(2.25rem, 9vw, 3rem);
-}
-
 .piece h1 {
   font-size: clamp(1.55rem, 5.5vw, 2.1rem);
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 0.6rem;
+  padding-left: 1.3em;
+  text-indent: -1.3em;
 }
 
 .piece .byline {
@@ -193,6 +179,7 @@ main {
 .piece .role,
 .piece .affiliation {
   font-family: "Arimo", sans-serif;
+  font-style: italic;
   font-size: 0.95rem;
   color: var(--secondary);
   margin: 0.15rem 0 0;
