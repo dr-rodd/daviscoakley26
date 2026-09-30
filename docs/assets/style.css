@@ -3,9 +3,10 @@
 
 :root {
   --ink: #111111;
-  --bg: #ffffff;
+  --bg: #f5f1e8;
   --secondary: #5a5a5a;
-  --rule: #d8d8d8;
+  --rule: #ddd6c8;
+  --header-h: 4.5rem;
 }
 
 @font-face {
@@ -31,6 +32,7 @@ html {
 
 body {
   margin: 0;
+  padding-top: var(--header-h);
   background: var(--bg);
   color: var(--ink);
   font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -71,24 +73,50 @@ main {
   padding-bottom: 3rem;
 }
 
-.masthead {
-  margin: 0 0 1.5rem;
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: var(--header-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
 }
 
-.masthead-logo {
-  height: 56px;
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  height: 100%;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.site-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.site-header-logo {
+  height: 42px;
   width: auto;
   display: block;
+  flex-shrink: 0;
 }
 
-.eyebrow {
+.site-header-meeting {
   font-family: "Arimo", sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--secondary);
-  margin: 0 0 0.35rem;
+  line-height: 1.35;
+  color: var(--ink);
 }
 
 /* Piece number set inline at the start of a title, same size/weight as
