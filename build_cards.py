@@ -66,10 +66,18 @@ def build_card_data(pieces):
     cards = []
     overflow = []
     for p in pieces:
-        artist = p.get("artist") or p.get("role") or ""
-        # If artist fell back to role (group-credited pieces), don't repeat
-        # the same text again as the role line right below it.
-        role = "" if not p.get("artist") else p.get("role", "")
+        if p.get("artist"):
+            artist = p["artist"]
+            role = p.get("role", "")
+        else:
+            # Group-credited piece (no individual artist): the role field's
+            # first line stands in for the artist line, and any further
+            # lines (e.g. a "Co-curated by..." credit) still render as the
+            # smaller italic role line below it, rather than being swallowed
+            # into the bold artist line with no break.
+            first, _, rest = p.get("role", "").partition("\n")
+            artist = first
+            role = rest
         form, medium = p.get("form", ""), p.get("medium", "")
         # Medium explicitly labelled, on its own line, matching the source
         # document's own "Medium: ..." lines rather than a middle-dot join.
