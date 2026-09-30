@@ -194,6 +194,31 @@ def render_number_tags(pieces, tags_css: str):
     return out
 
 
+def render_title_sign(base_url: str, font_dir: str):
+    """Card 1 (the title/cover card) enlarged by sqrt(2) to fill half an
+    A4 sheet, for use as a larger standalone sign. Two copies stacked on
+    one A4 sheet, split by a dashed cut line down the middle."""
+    css_template = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR))).get_template("title_sign.css")
+    sign_css = css_template.render(font_dir=font_dir)
+    title_card = build_title_card(base_url)
+
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    tpl = env.get_template("title_sign.html")
+    html = tpl.render(
+        sign_css=sign_css,
+        title=title_card["title"],
+        theme=title_card["theme"],
+        meta=title_card["meta"],
+        qr_path=title_card["qr_path"],
+        logo_path=LOGO_PATH,
+        positions=["0mm", "148.5mm"],
+    )
+    out = CARDS_DIR / "title_sign_A4.pdf"
+    HTML(string=html, base_url=str(ROOT)).write_pdf(str(out))
+    print(f"Wrote {out}")
+    return out
+
+
 def render_previews(individual_pdf: Path, piece_ids, preview_ids):
     import subprocess
     # 1 card per page; page 1 is the title card, so pieces start at page 2.
@@ -234,6 +259,7 @@ def generate(pieces, base_url: str, font_dir: str = FONT_DIR):
     individual_pdf = render_individual(all_cards, card_css)
     render_4up(all_cards, card_css)
     render_number_tags(pieces, tags_css)
+    render_title_sign(base_url, font_dir)
     longest = max(cards, key=lambda c: len(c["title"]))["id"]
     preview_ids = sorted({cards[0]["id"], cards[-1]["id"], longest})
     render_previews(individual_pdf, [c["id"] for c in cards], preview_ids)

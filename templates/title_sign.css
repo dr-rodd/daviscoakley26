@@ -1,0 +1,132 @@
+/* Enlarged title/cover card — same design and proportions as the small
+   title card (card.css's cover-title/theme/meta), scaled up by sqrt(2)
+   (one A-series step) to fill half of an A4 sheet (210mm x 148.5mm),
+   for use as a standalone larger sign. Two copies stacked per sheet,
+   split by a single dashed cut line down the middle. */
+
+@font-face {
+  font-family: "Arimo";
+  src: url("{{ font_dir }}/arimo-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arimo";
+  src: url("{{ font_dir }}/arimo-italic-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: italic;
+}
+
+:root {
+  --ink: #111111;
+  --secondary: #5a5a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+}
+
+.sheet {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  break-after: page;
+}
+
+.cutline-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 148.5mm;
+  border-top: 0.3mm dashed #999999;
+}
+
+.sign {
+  position: absolute;
+  left: 0;
+  width: 210mm;
+  height: 148.5mm;
+  overflow: hidden;
+}
+
+.sign-left {
+  position: absolute;
+  top: 15.5mm;
+  left: 12.7mm;
+  width: 188.8mm;
+  bottom: 25.5mm;
+}
+
+.sign-title {
+  margin: 0 0 5.7mm;
+  font-weight: 700;
+  font-size: 32.5pt;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.sign-theme {
+  margin: 0 0 4.2mm;
+  font-style: italic;
+  font-size: 18.4pt;
+  color: var(--secondary);
+}
+
+.sign-meta {
+  margin: 0;
+  font-size: 14.1pt;
+  color: var(--secondary);
+}
+
+.sign-right {
+  position: absolute;
+  bottom: 13.9mm;
+  right: 18.4mm;
+  width: 51mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-qr {
+  width: 48.1mm;
+  height: 48.1mm;
+}
+
+.sign-qr-caption {
+  margin: 4.2mm 0 0;
+  font-size: 12pt;
+  color: var(--secondary);
+  text-align: center;
+  max-width: 51mm;
+}
+
+.sign-footer-left {
+  position: absolute;
+  left: 12.7mm;
+  bottom: 8.5mm;
+  display: flex;
+  align-items: center;
+  gap: 3.5mm;
+}
+
+.sign-logo {
+  height: 15.6mm;
+  width: auto;
+  display: block;
+}
+
+.sign-label {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 12pt;
+  color: var(--ink);
+  white-space: nowrap;
+}
