@@ -49,12 +49,12 @@
   # superscripts) up top, role/location spelled out one line per number
   # below — see CORRECTIONS.md.
   artist: "Lanyi Yan¹ with Grace Park²"
-  role: "1. Composer and singer, St James Hospital\n2. Pianist, St James Hospital"
+  role: "1. Composer and singer, St James’ Hospital\n2. Pianist, St James’ Hospital"
   affiliation: ""
   form: "Music Composition"
   medium: ""
   description:
-    - "This piece is the outcome composition of Lanyi Yan’s musician residency in St James’s Hospital in 2024. She conducted a six-week Music-and-Health project with the hospital inpatients and older adults from the community. Through this process, she gathered stories about creative arts from the older adults, and composed this piece inspired by the stories. This piece was premiered in Mercer Institute of Successful Ageing, St James’s Hospital in December 2024, and performed in St James’s Church and RDS, Dublin"
+    - "This piece is the outcome composition of Lanyi Yan’s musician residency in St James’ Hospital in 2024. She conducted a six-week Music-and-Health project with the hospital inpatients and older adults from the community. Through this process, she gathered stories about creative arts from the older adults, and composed this piece inspired by the stories. This piece was premiered in Mercer Institute of Successful Ageing, St James’ Hospital in December 2024, and performed in St James’ Church and RDS, Dublin."
   sections: []
   closing: []
   video_url: ""
@@ -103,10 +103,10 @@
   form: "Sculpture"
   medium: "Base: Wooden board, prescription medication leaflets. Hands-Plaster"
   description:
-    - "I hope it serves as a reminder of the importance of a patient centred and holistic approach in our day-to-day work in geriatric medicine as our profession continues to embrace innovation."
+    - "I hope it serves as a reminder of the importance of a patient-centred and holistic approach in our day-to-day work in geriatric medicine as our profession continues to embrace innovation."
     - "The base is a wooden board layered with prescription medication leaflets. These documents symbolise the myriad of chronic illnesses and resulting polypharmacy that we often encounter in geriatric medicine. The wooden base represents the individual who carries the weight of diagnoses, prescriptions, and clinical decisions. It serves as a reminder of the importance of reviewing medications, deprescribing, weighing up risks and benefits of intervention and striving to achieve what matters most to our patients. The medication leaflets also illustrate that we, as a profession, are innovative and embrace change as newer medicines and technologies are approved and developed."
     - "The hands in this piece are moulds of my mother’s hands; they symbolise not only the care we provide to our patients but also remind us of the importance of our patient’s wider support network and relationships. It is important to not just see the patient with an illness in front of us but to see beyond their condition to the individual, their story, and their network of care."
-    - "In a time of rapid and exciting innovation we need to ensure we do not lose sight of what we do so well in geriatrics - patient centred holistic care."
+    - "In a time of rapid and exciting innovation we need to ensure we do not lose sight of what we do so well in geriatrics - patient-centred holistic care."
   sections: []
   closing: []
   video_url: ""
@@ -153,9 +153,9 @@
   medium: ""
   description:
     - "The older woman crossing the golden bridge represents every person ageing with a lifetime of memories, strength, and dignity. The bridge is golden because later life should be valued, not overlooked."
-    - "One side of the painting shows the difficulties many older people face — loneliness, isolation, barriers, and fragmented care. The other side shows a future shaped by innovation, where ageing at home, remote monitoring, and connected care can help people feel safer, supported, and less alone."
-    - "The human hand represents compassion — care, kindness, touch, listening, and presence. The robotic hand represents innovation — technology, digital health, and new ways of supporting ageing. Between them are the values that matter most: dignity, autonomy, and integrated care."
-    - "This artwork asks us to imagine a future where innovation does not stand apart from compassion, but works alongside it. To be truly ready for ageing with innovation, we must create systems that do more than advance technology — they must protect dignity, support autonomy, connect care, and ensure that no older person is left to cross the future alone."
+    - "One side of the painting shows the difficulties many older people face - loneliness, isolation, barriers, and fragmented care. The other side shows a future shaped by innovation, where ageing at home, remote monitoring, and connected care can help people feel safer, supported, and less alone."
+    - "The human hand represents compassion - care, kindness, touch, listening, and presence. The robotic hand represents innovation - technology, digital health, and new ways of supporting ageing. Between them are the values that matter most: dignity, autonomy, and integrated care."
+    - "This artwork asks us to imagine a future where innovation does not stand apart from compassion, but works alongside it. To be truly ready for ageing with innovation, we must create systems that do more than advance technology - they must protect dignity, support autonomy, connect care, and ensure that no older person is left to cross the future alone."
   sections: []
   closing: []
   video_url: ""
@@ -170,12 +170,12 @@
 - id: "09"
   title: "The Voice Within"
   artist: ""
-  role: "Members of Laryngectomy Outpatients Music Therapy Voice Group, St. James’s Hospital, Dublin"
-  affiliation: "Speech & Language Dept., Music Therapy Dept., Creative Life, MISA, St. James’s Hospital, Dublin."
+  role: "Members of Laryngectomy Outpatients Music Therapy Voice Group, St James’ Hospital, Dublin\nCo-curated by Marina Cassidy and Deirdre Leavy"
+  affiliation: "Speech & Language Dept., Music Therapy Dept., Creative Life, MISA, St James’ Hospital, Dublin"
   form: "Poetry"
   medium: ""
   description:
-    - "Laryngectomy surgery is life-changing, resulting in permanent changes to breathing, speaking and swallowing and overall quality of life. We present a collection of poems and song lyrics penned by patients exploring their experiences of ageing with a “new voice” and life after laryngectomy. These pieces reflect moments from their lived experiences and were developed as part of Voice Group Music Therapy sessions, delivered in collaboration with the Speech and Language Therapy Department and Music Therapy at Creative Life MISA at St. James’s Hospital. The collection was co-curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist). Marina Cassidy, Music Therapist, SJH."
+    - "Laryngectomy surgery is life-changing, resulting in permanent changes to breathing, speaking and swallowing and overall quality of life. We present a collection of poems and song lyrics penned by patients exploring their experiences of ageing with a “new voice” and life after laryngectomy. These pieces reflect moments from their lived experiences and were developed as part of Voice Group Music Therapy sessions, delivered in collaboration with the Speech and Language Therapy Department and Music Therapy at Creative Life MISA at St James’ Hospital. The collection was co-curated by Marina Cassidy (Music Therapist) and Deirdre Leavy (Speech & Language Therapist)."
   sections: []
   closing: []
   video_url: ""
@@ -185,7 +185,7 @@
 - id: "10"
   title: "Balancing space between still time"
   artist: "Dr. Karie Dennehy"
-  role: "Consultant in Palliative Medicine in Marymount University Hospital & Hospice, and Cork University Hospital."
+  role: "Consultant in Palliative Medicine in Marymount University Hospital & Hospice, and Cork University Hospital"
   affiliation: ""
   form: "Poem"
   medium: ""
@@ -202,16 +202,16 @@
   # name line stays short: names+superscripts up top, one full line per
   # footnote number (role + department together) below.
   artist: "Keyleigh Murphy¹, Claire Doyle², Kathleen Kenny³, Margaret Farrell³, Teresa Nolan³"
-  role: "1. Transition Year Art Student, Presentation Secondary School Kilkenny\n2. Art teacher, Presentation Secondary School Kilkenny\n3. Service Users, Carlow Kilkenny ICPOP"
+  role: "1. Transition Year Art Student, Presentation Secondary School Kilkenny\n2. Art Teacher, Presentation Secondary School Kilkenny\n3. Service Users, Carlow Kilkenny ICPOP"
   affiliation: ""
   form: "Painting"
   medium: ""
   description:
-    - "This small intergenerational art project aimed to foster awareness of ageing well in the community between ICPOP service users and the local secondary school. A series of conversations, workshop and quotes from ICPOP referrals inspired the painting. Key themes to emerge were: the importance of creativity, curiosity and growth, having a sense of purpose, and the value of social connections to benefit health and wellbeing. The project was facilitated by Liz Nolan, Community Connector, Carlow/Kilkenny Integrated Care Programme for Older Persons (ICPOP)"
+    - "This small intergenerational art project aimed to foster awareness of ageing well in the community between ICPOP service users and the local secondary school. A series of conversations, workshop and quotes from ICPOP referrals inspired the painting. Key themes to emerge were: the importance of creativity, curiosity and growth, having a sense of purpose, and the value of social connections to benefit health and wellbeing. The project was facilitated by Liz Nolan, Community Connector, Carlow/Kilkenny Integrated Care Programme for Older Persons (ICPOP)."
     - "**The aim of the intergenerational project:** to foster awareness of ageing well in the community."
     - "**The outcome:** an original artwork for installation in the new ICPOP hub: Oriel House, Kilkenny."
     - "**Our hope:** to spark conversations about what it means to age well among future referrals to the ICPOP team: bringing creativity to life in a meaningful, positive and pragmatic way."
-    - "In medical terms, the project reflects ‘What Matters Most?’, ‘Mentation’ (4Ms framework), along with the MECC (Making Every Contact Count) programme to support positive ageing"
+    - "In medical terms, the project reflects ‘What Matters Most?’, ‘Mentation’ (4Ms framework), along with the MECC (Making Every Contact Count) programme to support positive ageing."
   sections: []
   closing: []
   video_url: ""
