@@ -1,0 +1,68 @@
+/* Standalone piece-number tags — plain large numerals (matching the
+   numbering used on the info cards and QR labels) laid out on A4 sheets
+   with dashed cut lines, for physically labelling each exhibit. */
+
+@font-face {
+  font-family: "Arimo";
+  src: url("{{ font_dir }}/arimo-variable.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #111111;
+}
+
+.sheet {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  break-after: page;
+}
+
+.cutline-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 105mm;
+  border-left: 0.3mm dashed #999999;
+}
+
+.cutline-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 0.3mm dashed #999999;
+}
+
+.tag {
+  position: absolute;
+  width: 105mm;
+  height: 74.25mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-num {
+  font-weight: 800;
+  font-size: 72pt;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #111111;
+}
+
+.tag-label {
+  margin-top: 5mm;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5a5a5a;
+}

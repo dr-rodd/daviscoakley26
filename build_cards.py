@@ -164,6 +164,36 @@ def render_4up(cards, card_css: str):
     return out
 
 
+def render_number_tags(pieces, tags_css: str):
+    """Standalone A4 sheets of plain piece numbers (no title/QR), 8 per
+    sheet in a 2x4 grid with dashed cut lines, for physically labelling
+    each exhibit next to its artwork."""
+    positions = [
+        {"left": "0mm", "top": "0mm"},
+        {"left": "105mm", "top": "0mm"},
+        {"left": "0mm", "top": "74.25mm"},
+        {"left": "105mm", "top": "74.25mm"},
+        {"left": "0mm", "top": "148.5mm"},
+        {"left": "105mm", "top": "148.5mm"},
+        {"left": "0mm", "top": "222.75mm"},
+        {"left": "105mm", "top": "222.75mm"},
+    ]
+    tags = [{"num_label": f"{str(int(p['id']))}."} for p in pieces]
+    sheets = []
+    for i in range(0, len(tags), 8):
+        group = tags[i:i + 8]
+        sheet = [{**tag, **pos} for tag, pos in zip(group, positions)]
+        sheets.append(sheet)
+
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    tpl = env.get_template("number_tags.html")
+    html = tpl.render(sheets=sheets, tags_css=tags_css)
+    out = CARDS_DIR / "number_tags_A4.pdf"
+    HTML(string=html, base_url=str(ROOT)).write_pdf(str(out))
+    print(f"Wrote {out}")
+    return out
+
+
 def render_previews(individual_pdf: Path, piece_ids, preview_ids):
     import subprocess
     # 1 card per page; page 1 is the title card, so pieces start at page 2.
@@ -188,6 +218,8 @@ def generate(pieces, base_url: str, font_dir: str = FONT_DIR):
     CARDS_DIR.mkdir(exist_ok=True)
     card_css_template = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR))).get_template("card.css")
     card_css = card_css_template.render(font_dir=font_dir)
+    tags_css_template = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR))).get_template("number_tags.css")
+    tags_css = tags_css_template.render(font_dir=font_dir)
 
     cards, overflow = build_card_data(pieces)
     if overflow:
@@ -201,6 +233,7 @@ def generate(pieces, base_url: str, font_dir: str = FONT_DIR):
 
     individual_pdf = render_individual(all_cards, card_css)
     render_4up(all_cards, card_css)
+    render_number_tags(pieces, tags_css)
     longest = max(cards, key=lambda c: len(c["title"]))["id"]
     preview_ids = sorted({cards[0]["id"], cards[-1]["id"], longest})
     render_previews(individual_pdf, [c["id"] for c in cards], preview_ids)

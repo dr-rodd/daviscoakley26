@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+{{ tags_css }}
+@page {
+  size: 210mm 297mm;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+{% for sheet in sheets %}
+<div class="sheet">
+  <div class="cutline-v"></div>
+  <div class="cutline-h" style="top: 74.25mm;"></div>
+  <div class="cutline-h" style="top: 148.5mm;"></div>
+  <div class="cutline-h" style="top: 222.75mm;"></div>
+  {% for tag in sheet %}
+  <div class="tag" style="top: {{ tag.top }}; left: {{ tag.left }};">
+    <span class="tag-num">{{ tag.num_label }}</span>
+    <span class="tag-label">Davis Coakley Award 2026</span>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+</body>
+</html>
