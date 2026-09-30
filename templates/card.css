@@ -139,8 +139,8 @@ body {
 
 .card-right {
   position: absolute;
-  bottom: 16mm;
-  right: 16mm;
+  bottom: 13mm;
+  right: 13mm;
   width: 36mm;
   display: flex;
   flex-direction: column;
