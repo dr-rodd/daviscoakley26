@@ -18,12 +18,15 @@
 <link rel="stylesheet" href="{{ asset_prefix }}assets/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-header-brand" href="{{ asset_prefix }}index.html">
+      <img class="site-header-logo" src="{{ asset_prefix }}assets/logo-seal-navy.png" alt="Irish Gerontological Society">
+      <span class="site-header-meeting">73rd IGS Annual Scientific Meeting<br>Cork &middot; 1&ndash;3 October 2026</span>
+    </a>
+  </div>
+</header>
 <main>
-<div class="masthead">
-  <a href="{{ asset_prefix }}index.html">
-    <img class="masthead-logo" src="{{ asset_prefix }}assets/logo-seal.png" alt="Irish Gerontological Society">
-  </a>
-</div>
 {% block content %}{% endblock %}
 </main>
 <footer class="site-footer">
