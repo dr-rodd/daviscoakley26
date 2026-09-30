@@ -60,6 +60,9 @@ def video_embed_url(url: str) -> str:
     vimeo = re.search(r"vimeo\.com/(\d+)", url)
     if vimeo:
         return f"https://player.vimeo.com/video/{vimeo.group(1)}?dnt=1"
+    drive = re.search(r"drive\.google\.com/file/d/([\w-]+)", url)
+    if drive:
+        return f"https://drive.google.com/file/d/{drive.group(1)}/preview"
     return url
 
 
