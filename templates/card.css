@@ -54,9 +54,9 @@ body {
 
 .card-left {
   position: absolute;
-  top: 8mm;
-  left: 6mm;
-  width: 136mm; /* full card width (148mm) minus the 6mm side margins */
+  top: 11mm;
+  left: 9mm;
+  width: 133mm; /* card width (148mm) minus the 9mm left margin and matching 6mm right margin */
   bottom: 18mm;
 }
 
@@ -71,7 +71,7 @@ body {
   margin: 0 0 4mm;
   font-family: "Arimo", sans-serif;
   font-weight: 700;
-  font-size: 21pt;
+  font-size: 23pt;
   line-height: 1.18;
   color: var(--ink);
 }
@@ -80,14 +80,14 @@ body {
   margin: 0 0 3mm;
   font-family: "Arimo", sans-serif;
   font-style: italic;
-  font-size: 12pt;
+  font-size: 13pt;
   color: var(--secondary);
 }
 
 .card-cover-meta {
   margin: 0;
   font-family: "Arimo", sans-serif;
-  font-size: 9pt;
+  font-size: 10pt;
   color: var(--secondary);
 }
 
@@ -95,10 +95,10 @@ body {
   margin: 0 0 3mm;
   font-family: "Arimo", sans-serif;
   font-weight: 700;
-  font-size: 15pt;
+  font-size: 16.5pt;
   line-height: 1.16;
   color: var(--ink);
-  max-height: 21mm;
+  max-height: 22mm;
   overflow: hidden;
   padding-left: var(--indent, 8mm);
   text-indent: calc(-1 * var(--indent, 8mm));
@@ -109,7 +109,7 @@ body {
   padding-left: var(--indent, 8mm);
   font-family: "Arimo", sans-serif;
   font-weight: 700;
-  font-size: 10.5pt;
+  font-size: 11.5pt;
   color: var(--ink);
 }
 
@@ -119,7 +119,7 @@ body {
   padding-left: var(--indent, 8mm);
   font-family: "Arimo", sans-serif;
   font-style: italic;
-  font-size: 8.5pt;
+  font-size: 9.5pt;
   line-height: 1.25;
   color: var(--secondary);
   white-space: pre-line;
@@ -131,7 +131,7 @@ body {
   font-family: "Arimo", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 8.5pt;
+  font-size: 9.5pt;
   line-height: 1.25;
   color: var(--ink);
   white-space: pre-line;
@@ -141,29 +141,29 @@ body {
   position: absolute;
   bottom: 16mm;
   right: 16mm;
-  width: 34mm;
+  width: 36mm;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .card-qr {
-  width: 32mm;
-  height: 32mm;
+  width: 34mm;
+  height: 34mm;
 }
 
 .card-qr-caption {
   margin: 3mm 0 0;
   font-family: "Arimo", sans-serif;
-  font-size: 7.5pt;
+  font-size: 8.5pt;
   color: var(--secondary);
   text-align: center;
-  max-width: 34mm;
+  max-width: 36mm;
 }
 
 .card-footer-left {
   position: absolute;
-  left: 6mm;
+  left: 9mm;
   bottom: 6mm;
   display: flex;
   align-items: center;
@@ -171,7 +171,7 @@ body {
 }
 
 .card-logo {
-  height: 10mm;
+  height: 11mm;
   width: auto;
   display: block;
 }
@@ -182,7 +182,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.06em;
-  font-size: 7.5pt;
+  font-size: 8.5pt;
   color: var(--ink);
   white-space: nowrap;
 }

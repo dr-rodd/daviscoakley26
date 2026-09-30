@@ -17,9 +17,9 @@ LOGO_PATH = (ROOT / "docs" / "assets" / "logo-seal-navy.png").as_uri()  # cards 
 QR_DIR = ROOT / "qr"
 
 MEASURE_FONT = ROOT / "docs" / "assets" / "fonts" / "arimo-variable.woff2"
-TITLE_FONT_SIZE_PT = 15
+TITLE_FONT_SIZE_PT = 16.5
 TITLE_WEIGHT = 700
-TITLE_BOX_WIDTH_MM = 128  # card-left width (136mm) minus a typical number indent, for the overflow check
+TITLE_BOX_WIDTH_MM = 125  # card-left width (133mm) minus a typical number indent, for the overflow check
 TITLE_MAX_LINES = 3
 MM_PER_PT = 25.4 / 72
 NUM_GAP_MM = 1.5  # extra space after the number, bullet-point style
